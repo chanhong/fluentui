@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css, styled, classNamesFunction, composeRenderFunction, getNativeElementProps } from '../../Utilities';
 import { Check } from '../../Check';
-import { getStyles } from './DetailsRowCheck.styles';
+import { getDetailsRowCheckStyles } from './DetailsRowCheck.styles';
 import { SelectionMode } from '../../Selection';
 import type {
   IDetailsRowCheckProps,
@@ -60,7 +60,7 @@ const DetailsRowCheckBase: React.FunctionComponent<IDetailsRowCheckProps> = prop
     <div
       {...buttonProps}
       role={checkRole}
-      // eslint-disable-next-line deprecation/deprecation
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
       className={css(classNames.root, classNames.check)}
       aria-checked={selected}
       data-selection-toggle={true}
@@ -70,7 +70,7 @@ const DetailsRowCheckBase: React.FunctionComponent<IDetailsRowCheckProps> = prop
       {onRenderCheckbox(detailsCheckboxProps)}
     </div>
   ) : (
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     <div {...divProps} className={css(classNames.root, classNames.check)} />
   );
 };
@@ -89,7 +89,7 @@ function _fastDefaultCheckboxRender(checkboxProps: IDetailsCheckboxProps) {
 
 export const DetailsRowCheck = styled<IDetailsRowCheckProps, IDetailsRowCheckStyleProps, IDetailsRowCheckStyles>(
   DetailsRowCheckBase,
-  getStyles,
+  getDetailsRowCheckStyles,
   undefined,
   { scope: 'DetailsRowCheck' },
   true,

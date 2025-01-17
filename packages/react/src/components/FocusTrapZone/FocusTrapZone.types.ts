@@ -50,6 +50,11 @@ export interface IFocusTrapZoneProps extends React.HTMLAttributes<HTMLDivElement
    * once the trap zone is unmounted or disabled. Set to true to disable this behavior.
    * @defaultvalue false
    */
+  disableRestoreFocus?: boolean;
+
+  /**
+   * @deprecated Use `disableRestoreFocus` (it has the same behavior and a clearer name).
+   */
   ignoreExternalFocusing?: boolean;
 
   /**
@@ -89,8 +94,7 @@ export interface IFocusTrapZoneProps extends React.HTMLAttributes<HTMLDivElement
 
   /**
    * Puts aria-hidden=true on all non-ancestors of the current element, for screen readers.
-   * This is an experimental feature that will be graduated to default behavior after testing.
-   * This flag will be removed with the next major release.
+   * In future versions of the library, this will be the default behavior.
    */
   enableAriaHiddenSiblings?: boolean;
 }

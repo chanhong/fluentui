@@ -36,7 +36,6 @@ exports[`DetailsList handles paged updates to items within groups 1`] = `
   >
     <div
       aria-colcount={5}
-      aria-readonly="true"
       aria-rowcount={7}
       role="grid"
     >
@@ -100,6 +99,7 @@ exports[`DetailsList handles paged updates to items within groups 1`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone1"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -302,7 +302,6 @@ exports[`DetailsList handles paged updates to items within groups 2`] = `
   >
     <div
       aria-colcount={5}
-      aria-readonly="true"
       aria-rowcount={7}
       role="grid"
     >
@@ -366,6 +365,7 @@ exports[`DetailsList handles paged updates to items within groups 2`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone1"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -584,7 +584,6 @@ exports[`DetailsList handles updates to items and groups 1`] = `
   >
     <div
       aria-colcount={5}
-      aria-readonly="true"
       aria-rowcount={9}
       role="grid"
     >
@@ -648,6 +647,7 @@ exports[`DetailsList handles updates to items and groups 1`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone1"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -952,7 +952,6 @@ exports[`DetailsList handles updates to items and groups 2`] = `
   >
     <div
       aria-colcount={5}
-      aria-readonly="true"
       aria-rowcount={9}
       role="grid"
     >
@@ -1016,6 +1015,7 @@ exports[`DetailsList handles updates to items and groups 2`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone1"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1320,7 +1320,6 @@ exports[`DetailsList handles updates to items and groups 3`] = `
   >
     <div
       aria-colcount={5}
-      aria-readonly="true"
       aria-rowcount={7}
       role="grid"
     >
@@ -1384,6 +1383,7 @@ exports[`DetailsList handles updates to items and groups 3`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone1"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1602,7 +1602,6 @@ exports[`DetailsList handles updates to items and groups 4`] = `
   >
     <div
       aria-colcount={5}
-      aria-readonly="true"
       aria-rowcount={7}
       role="grid"
     >
@@ -1666,6 +1665,7 @@ exports[`DetailsList handles updates to items and groups 4`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone1"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1725,13 +1725,13 @@ exports[`DetailsList handles updates to items and groups 4`] = `
                             >
                               <div>
                                 <div>
-                                  D1
+                                  A1
                                 </div>
                                 <div>
-                                  E1
+                                  B1
                                 </div>
                                 <div>
-                                  F1
+                                  C1
                                 </div>
                               </div>
                             </div>
@@ -1743,13 +1743,13 @@ exports[`DetailsList handles updates to items and groups 4`] = `
                             >
                               <div>
                                 <div>
-                                  D2
+                                  A2
                                 </div>
                                 <div>
-                                  E2
+                                  B2
                                 </div>
                                 <div>
-                                  F2
+                                  C2
                                 </div>
                               </div>
                             </div>
@@ -1804,13 +1804,13 @@ exports[`DetailsList handles updates to items and groups 4`] = `
                             >
                               <div>
                                 <div>
-                                  D3
+                                  A3
                                 </div>
                                 <div>
-                                  E3
+                                  B3
                                 </div>
                                 <div>
-                                  F3
+                                  C3
                                 </div>
                               </div>
                             </div>
@@ -1822,13 +1822,13 @@ exports[`DetailsList handles updates to items and groups 4`] = `
                             >
                               <div>
                                 <div>
-                                  D4
+                                  A4
                                 </div>
                                 <div>
-                                  E4
+                                  B4
                                 </div>
                                 <div>
-                                  F4
+                                  C4
                                 </div>
                               </div>
                             </div>
@@ -1883,7 +1883,6 @@ exports[`DetailsList renders List correctly 1`] = `
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -1928,6 +1927,7 @@ exports[`DetailsList renders List correctly 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -1935,7 +1935,6 @@ exports[`DetailsList renders List correctly 1`] = `
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header1-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -1977,6 +1976,17 @@ exports[`DetailsList renders List correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -1994,6 +2004,9 @@ exports[`DetailsList renders List correctly 1`] = `
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -2029,6 +2042,17 @@ exports[`DetailsList renders List correctly 1`] = `
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -2093,6 +2117,7 @@ exports[`DetailsList renders List correctly 1`] = `
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -2116,7 +2141,7 @@ exports[`DetailsList renders List correctly 1`] = `
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -2135,6 +2160,7 @@ exports[`DetailsList renders List correctly 1`] = `
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -2162,7 +2188,7 @@ exports[`DetailsList renders List correctly 1`] = `
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -2180,7 +2206,6 @@ exports[`DetailsList renders List correctly 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header1-key-name"
             aria-sort="none"
             className=
@@ -2226,6 +2251,17 @@ exports[`DetailsList renders List correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -2241,6 +2277,8 @@ exports[`DetailsList renders List correctly 1`] = `
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -2291,9 +2329,21 @@ exports[`DetailsList renders List correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -2369,7 +2419,6 @@ exports[`DetailsList renders List correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={3}
             aria-labelledby="header1-name-name"
             aria-sort="none"
             className=
@@ -2415,6 +2464,17 @@ exports[`DetailsList renders List correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -2430,6 +2490,8 @@ exports[`DetailsList renders List correctly 1`] = `
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -2480,9 +2542,21 @@ exports[`DetailsList renders List correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -2558,7 +2632,6 @@ exports[`DetailsList renders List correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={4}
             aria-labelledby="header1-value-name"
             aria-sort="none"
             className=
@@ -2604,6 +2677,17 @@ exports[`DetailsList renders List correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -2619,6 +2703,8 @@ exports[`DetailsList renders List correctly 1`] = `
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -2669,9 +2755,21 @@ exports[`DetailsList renders List correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -2777,6 +2875,7 @@ exports[`DetailsList renders List correctly 1`] = `
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone3"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -2871,7 +2970,6 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
   >
     <div
       aria-colcount={6}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -2916,6 +3014,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -2923,7 +3022,6 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header1-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -2965,6 +3063,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -2982,6 +3091,9 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -3017,6 +3129,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -3081,6 +3204,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -3104,7 +3228,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -3123,6 +3247,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -3150,7 +3275,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -3168,9 +3293,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={2}
-            aria-describedby="header1-column_key_0-tooltip"
-            aria-labelledby="header1-column_key_0-name"
+            aria-label="column_0"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -3205,6 +3328,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -3230,6 +3364,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_0"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3280,9 +3416,21 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_0"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3301,33 +3449,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_0-tooltip"
-          >
-            column_0
-          </label>
           <div
-            aria-colindex={3}
-            aria-describedby="header1-column_key_1-tooltip"
-            aria-labelledby="header1-column_key_1-name"
+            aria-label="column_1"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -3362,6 +3485,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -3387,6 +3521,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_1"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3437,9 +3573,21 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_1"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3458,33 +3606,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_1-tooltip"
-          >
-            column_1
-          </label>
           <div
-            aria-colindex={4}
-            aria-describedby="header1-column_key_2-tooltip"
-            aria-labelledby="header1-column_key_2-name"
+            aria-label="column_2"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -3519,6 +3642,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -3544,6 +3678,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_2"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3594,9 +3730,21 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_2"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3615,33 +3763,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_2-tooltip"
-          >
-            column_2
-          </label>
           <div
-            aria-colindex={5}
-            aria-describedby="header1-column_key_3-tooltip"
-            aria-labelledby="header1-column_key_3-name"
+            aria-label="column_3"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -3676,6 +3799,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -3701,6 +3835,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_3"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3751,9 +3887,21 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_3"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3772,33 +3920,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_3-tooltip"
-          >
-            column_3
-          </label>
           <div
-            aria-colindex={6}
-            aria-describedby="header1-column_key_4-tooltip"
-            aria-labelledby="header1-column_key_4-name"
+            aria-label="column_4"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -3843,6 +3966,17 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -3858,6 +3992,8 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_4"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3908,9 +4044,21 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_4"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3929,29 +4077,6 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_4-tooltip"
-          >
-            column_4
-          </label>
         </div>
       </div>
       <div
@@ -3983,6 +4108,7 @@ exports[`DetailsList renders List correctly with onRenderDivider props 1`] = `
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone3"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -4078,7 +4204,6 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -4123,6 +4248,7 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -4130,7 +4256,6 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header1-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -4172,6 +4297,17 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -4189,6 +4325,9 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -4224,6 +4363,17 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -4288,6 +4438,7 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -4311,7 +4462,7 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -4330,6 +4481,7 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -4357,7 +4509,7 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -4375,7 +4527,6 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header1-key-name"
             aria-sort="none"
             className=
@@ -4421,6 +4572,17 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -4436,6 +4598,8 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -4486,9 +4650,21 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -4564,7 +4740,6 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={3}
             aria-labelledby="header1-name-name"
             aria-sort="none"
             className=
@@ -4610,6 +4785,17 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -4625,6 +4811,8 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -4675,9 +4863,21 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -4753,7 +4953,6 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={4}
             aria-labelledby="header1-value-name"
             aria-sort="none"
             className=
@@ -4799,6 +4998,17 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -4814,6 +5024,8 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -4864,9 +5076,21 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -4972,6 +5196,7 @@ exports[`DetailsList renders List in compact mode correctly 1`] = `
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone3"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -5067,7 +5292,6 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -5112,6 +5336,7 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -5119,7 +5344,6 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header1-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -5161,6 +5385,17 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -5178,6 +5413,9 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -5213,6 +5451,17 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -5277,6 +5526,7 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -5300,7 +5550,7 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -5319,6 +5569,7 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -5346,7 +5597,7 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -5364,7 +5615,6 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header1-key-name"
             aria-sort="none"
             className=
@@ -5410,6 +5660,17 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -5425,6 +5686,8 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -5475,9 +5738,21 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -5553,7 +5828,6 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={3}
             aria-labelledby="header1-name-name"
             aria-sort="none"
             className=
@@ -5599,6 +5873,17 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -5614,6 +5899,8 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -5664,9 +5951,21 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -5742,7 +6041,6 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={4}
             aria-labelledby="header1-value-name"
             aria-sort="none"
             className=
@@ -5788,6 +6086,17 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -5803,6 +6112,8 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -5853,9 +6164,21 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -5961,6 +6284,7 @@ exports[`DetailsList renders List in fixed constrained layout correctly 1`] = `
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone3"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -6055,7 +6379,6 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
   >
     <div
       aria-colcount={6}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -6100,6 +6423,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -6107,7 +6431,6 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header1-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -6149,6 +6472,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -6166,6 +6500,9 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -6201,6 +6538,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -6265,6 +6613,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -6288,7 +6637,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -6307,6 +6656,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -6334,7 +6684,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -6352,9 +6702,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={2}
-            aria-describedby="header1-column_key_0-tooltip"
-            aria-labelledby="header1-column_key_0-name"
+            aria-label="column_0"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -6389,6 +6737,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -6414,6 +6773,8 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_0"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -6464,9 +6825,21 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_0"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -6485,36 +6858,11 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_0-tooltip"
-          >
-            column_0
-          </label>
           <span>
             |
           </span>
           <div
-            aria-colindex={3}
-            aria-describedby="header1-column_key_1-tooltip"
-            aria-labelledby="header1-column_key_1-name"
+            aria-label="column_1"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -6549,6 +6897,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -6574,6 +6933,8 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_1"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -6624,9 +6985,21 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_1"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -6645,36 +7018,11 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_1-tooltip"
-          >
-            column_1
-          </label>
           <span>
             |
           </span>
           <div
-            aria-colindex={4}
-            aria-describedby="header1-column_key_2-tooltip"
-            aria-labelledby="header1-column_key_2-name"
+            aria-label="column_2"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -6709,6 +7057,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -6734,6 +7093,8 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_2"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -6784,9 +7145,21 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_2"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -6805,36 +7178,11 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_2-tooltip"
-          >
-            column_2
-          </label>
           <span>
             |
           </span>
           <div
-            aria-colindex={5}
-            aria-describedby="header1-column_key_3-tooltip"
-            aria-labelledby="header1-column_key_3-name"
+            aria-label="column_3"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -6869,6 +7217,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   border: 0;
                 }
                 .ms-Fabric--isFocusVisible &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
                   border: 1px solid #ffffff;
                   bottom: 1px;
                   content: "";
@@ -6894,6 +7253,8 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_3"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -6944,9 +7305,21 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_3"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -6965,36 +7338,11 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_3-tooltip"
-          >
-            column_3
-          </label>
           <span>
             |
           </span>
           <div
-            aria-colindex={6}
-            aria-describedby="header1-column_key_4-tooltip"
-            aria-labelledby="header1-column_key_4-name"
+            aria-label="column_4"
             aria-sort="none"
             className=
                 ms-DetailsHeader-cell
@@ -7039,6 +7387,17 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -7054,6 +7413,8 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
             data-is-focusable="true"
             data-item-key="column_key_4"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -7104,9 +7465,21 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-column_key_4"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -7125,29 +7498,6 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
               </span>
             </span>
           </div>
-          <label
-            className=
-
-                {
-                  border: 0px;
-                  height: 1px;
-                  margin-bottom: -1px;
-                  margin-left: -1px;
-                  margin-right: -1px;
-                  margin-top: -1px;
-                  overflow: hidden;
-                  padding-bottom: 0px;
-                  padding-left: 0px;
-                  padding-right: 0px;
-                  padding-top: 0px;
-                  position: absolute;
-                  white-space: nowrap;
-                  width: 1px;
-                }
-            id="header1-column_key_4-tooltip"
-          >
-            column_4
-          </label>
           <span>
             |
           </span>
@@ -7182,6 +7532,7 @@ exports[`DetailsList renders List with custom icon as column divider 1`] = `
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone3"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -7276,7 +7627,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={8}
       role="grid"
     >
@@ -7321,6 +7671,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -7371,6 +7722,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background-color: #f3f2f1;
                 }
@@ -7388,6 +7750,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                   ms-DetailsHeader-collapseButton
                   {
                     display: inline-block;
+                    text-decoration: inherit;
                   }
                   {
                     -moz-osx-font-smoothing: grayscale;
@@ -7411,9 +7774,28 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             >
               
             </i>
+            <span
+              className=
+
+                  {
+                    border: 0px;
+                    height: 1px;
+                    margin-bottom: -1px;
+                    margin-left: -1px;
+                    margin-right: -1px;
+                    margin-top: -1px;
+                    overflow: hidden;
+                    padding-bottom: 0px;
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    padding-top: 0px;
+                    position: absolute;
+                    white-space: nowrap;
+                    width: 1px;
+                  }
+            />
           </div>
           <div
-            aria-colindex={1}
             aria-labelledby="header1-key-name"
             aria-sort="none"
             className=
@@ -7459,6 +7841,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -7474,6 +7867,8 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -7524,9 +7919,21 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -7602,7 +8009,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={2}
             aria-labelledby="header1-name-name"
             aria-sort="none"
             className=
@@ -7648,6 +8054,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -7663,6 +8080,8 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -7713,9 +8132,21 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -7791,7 +8222,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             role="button"
           />
           <div
-            aria-colindex={3}
             aria-labelledby="header1-value-name"
             aria-sort="none"
             className=
@@ -7837,6 +8267,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -7852,6 +8293,8 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -7902,9 +8345,21 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -8024,6 +8479,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
             data-automationid="GroupedList"
             data-focuszone-id="FocusZone3"
             data-is-scrollable="false"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -8060,7 +8516,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                       <div
                         aria-expanded={true}
                         aria-labelledby="GroupHeader5"
-                        aria-level={1}
                         aria-rowindex={2}
                         className=
                             ms-GroupHeader
@@ -8090,6 +8545,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               top: 1px;
                               z-index: 1;
                             }
+                            :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                              border: 1px solid #ffffff;
+                              bottom: 1px;
+                              content: "";
+                              left: 1px;
+                              outline: 1px solid #605e5c;
+                              position: absolute;
+                              right: 1px;
+                              top: 1px;
+                              z-index: 1;
+                            }
                             &:hover {
                               background: #f3f2f1;
                               color: #201f1e;
@@ -8098,6 +8564,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               opacity: 1;
                             }
                             .ms-Fabric--isFocusVisible &:focus .ms-GroupHeader-check {
+                              opacity: 1;
+                            }
+                            :host(.ms-Fabric--isFocusVisible) &:focus .ms-GroupHeader-check {
                               opacity: 1;
                             }
                             & > .ms-GroupHeader .ms-GroupHeader-dropIcon {
@@ -8110,7 +8579,8 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               opacity: 0;
                             }
                         data-is-focusable={true}
-                        onClick={[Function]}
+                        data-selection-index={0}
+                        data-selection-span={2}
                         onKeyUp={[Function]}
                         role="row"
                         style={Object {}}
@@ -8155,6 +8625,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     font-style: normal;
                                     font-weight: normal;
                                     speak: none;
+                                    text-decoration: inherit;
                                   }
                               data-icon-name="Tag"
                             >
@@ -8177,6 +8648,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     color: #605e5c;
                                     cursor: default;
                                     display: flex;
+                                    flex-shrink: 0;
                                     font-size: 12px;
                                     height: 48px;
                                     justify-content: center;
@@ -8202,6 +8674,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     top: 1px;
                                     z-index: 1;
                                   }
+                                  :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                    border: 1px solid #ffffff;
+                                    bottom: 1px;
+                                    content: "";
+                                    left: 1px;
+                                    outline: 1px solid #605e5c;
+                                    position: absolute;
+                                    right: 1px;
+                                    top: 1px;
+                                    z-index: 1;
+                                  }
                                   &:hover {
                                     background-color: #edebe9;
                                   }
@@ -8209,6 +8692,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     background-color: #e1dfdd;
                                   }
                               data-is-focusable={false}
+                              data-selection-disabled={true}
                               onClick={[Function]}
                               type="button"
                             >
@@ -8224,6 +8708,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       font-style: normal;
                                       font-weight: normal;
                                       speak: none;
+                                      text-decoration: inherit;
                                       transform-origin: 50% 50%;
                                       transform: rotate(90deg);
                                       transition: transform .1s linear;
@@ -8243,11 +8728,14 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   font-size: 16px;
                                   font-weight: 600;
                                   outline: 0px;
+                                  overflow: hidden;
                                   padding-left: 12px;
                                   text-overflow: ellipsis;
                                   white-space: nowrap;
                                 }
+                            data-selection-invoke={true}
                             id="GroupHeader5"
+                            onClick={[Function]}
                             role="gridcell"
                           >
                             <span>
@@ -8292,7 +8780,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               role="presentation"
                             >
                               <div
-                                aria-level={2}
                                 aria-rowindex={3}
                                 aria-selected={false}
                                 className=
@@ -8345,6 +8832,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       top: 1px;
                                       z-index: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                      border: 1px solid #605e5c;
+                                      bottom: 1px;
+                                      content: "";
+                                      left: 1px;
+                                      outline: 1px solid #ffffff;
+                                      position: absolute;
+                                      right: 1px;
+                                      top: 1px;
+                                      z-index: 1;
+                                    }
                                     .ms-List-cell:first-child &:before {
                                       display: none;
                                     }
@@ -8364,6 +8862,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     .ms-Fabric--isFocusVisible &:focus .ms-DetailsRow-check {
                                       opacity: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus .ms-DetailsRow-check {
+                                      opacity: 1;
+                                    }
                                     & .ms-GroupSpacer {
                                       flex-grow: 0;
                                       flex-shrink: 0;
@@ -8374,16 +8875,13 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                 data-item-index={0}
                                 data-selection-index={0}
                                 data-selection-touch-invoke={true}
+                                data-tabster="{\\"uncontrolled\\": {}}"
                                 id="row0-0"
                                 onFocus={[Function]}
                                 onKeyDown={[Function]}
                                 onMouseDownCapture={[Function]}
                                 role="row"
-                                style={
-                                  Object {
-                                    "minWidth": 300,
-                                  }
-                                }
+                                tabIndex={0}
                               >
                                 <span
                                   className="ms-GroupSpacer"
@@ -8406,8 +8904,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   role="presentation"
                                 >
                                   <div
-                                    aria-colindex={2}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -8428,6 +8924,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -8463,8 +8970,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     0
                                   </div>
                                   <div
-                                    aria-colindex={3}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -8485,6 +8990,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -8520,8 +9036,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     Item 0
                                   </div>
                                   <div
-                                    aria-colindex={4}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -8542,6 +9056,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -8577,21 +9102,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     0
                                   </div>
                                 </div>
-                                <span
-                                  aria-checked={false}
-                                  className=
-
-                                      {
-                                        bottom: 0px;
-                                        display: none;
-                                        left: 0px;
-                                        position: absolute;
-                                        right: 0px;
-                                        top: -1px;
-                                      }
-                                  data-selection-toggle={true}
-                                  role="checkbox"
-                                />
                               </div>
                             </div>
                             <div
@@ -8601,7 +9111,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               role="presentation"
                             >
                               <div
-                                aria-level={2}
                                 aria-rowindex={4}
                                 aria-selected={false}
                                 className=
@@ -8654,6 +9163,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       top: 1px;
                                       z-index: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                      border: 1px solid #605e5c;
+                                      bottom: 1px;
+                                      content: "";
+                                      left: 1px;
+                                      outline: 1px solid #ffffff;
+                                      position: absolute;
+                                      right: 1px;
+                                      top: 1px;
+                                      z-index: 1;
+                                    }
                                     .ms-List-cell:first-child &:before {
                                       display: none;
                                     }
@@ -8673,6 +9193,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     .ms-Fabric--isFocusVisible &:focus .ms-DetailsRow-check {
                                       opacity: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus .ms-DetailsRow-check {
+                                      opacity: 1;
+                                    }
                                     & .ms-GroupSpacer {
                                       flex-grow: 0;
                                       flex-shrink: 0;
@@ -8683,16 +9206,12 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                 data-item-index={1}
                                 data-selection-index={1}
                                 data-selection-touch-invoke={true}
+                                data-tabster="{\\"uncontrolled\\": {}}"
                                 id="row0-1"
                                 onFocus={[Function]}
                                 onKeyDown={[Function]}
                                 onMouseDownCapture={[Function]}
                                 role="row"
-                                style={
-                                  Object {
-                                    "minWidth": 300,
-                                  }
-                                }
                               >
                                 <span
                                   className="ms-GroupSpacer"
@@ -8715,8 +9234,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   role="presentation"
                                 >
                                   <div
-                                    aria-colindex={2}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -8737,6 +9254,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -8772,8 +9300,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     1
                                   </div>
                                   <div
-                                    aria-colindex={3}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -8794,6 +9320,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -8829,8 +9366,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     Item 1
                                   </div>
                                   <div
-                                    aria-colindex={4}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -8851,6 +9386,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -8886,21 +9432,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     1
                                   </div>
                                 </div>
-                                <span
-                                  aria-checked={false}
-                                  className=
-
-                                      {
-                                        bottom: 0px;
-                                        display: none;
-                                        left: 0px;
-                                        position: absolute;
-                                        right: 0px;
-                                        top: -1px;
-                                      }
-                                  data-selection-toggle={true}
-                                  role="checkbox"
-                                />
                               </div>
                             </div>
                           </div>
@@ -8931,7 +9462,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                       <div
                         aria-expanded={true}
                         aria-labelledby="GroupHeader7"
-                        aria-level={1}
                         aria-rowindex={5}
                         className=
                             ms-GroupHeader
@@ -8961,6 +9491,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               top: 1px;
                               z-index: 1;
                             }
+                            :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                              border: 1px solid #ffffff;
+                              bottom: 1px;
+                              content: "";
+                              left: 1px;
+                              outline: 1px solid #605e5c;
+                              position: absolute;
+                              right: 1px;
+                              top: 1px;
+                              z-index: 1;
+                            }
                             &:hover {
                               background: #f3f2f1;
                               color: #201f1e;
@@ -8969,6 +9510,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               opacity: 1;
                             }
                             .ms-Fabric--isFocusVisible &:focus .ms-GroupHeader-check {
+                              opacity: 1;
+                            }
+                            :host(.ms-Fabric--isFocusVisible) &:focus .ms-GroupHeader-check {
                               opacity: 1;
                             }
                             & > .ms-GroupHeader .ms-GroupHeader-dropIcon {
@@ -8981,7 +9525,8 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               opacity: 0;
                             }
                         data-is-focusable={true}
-                        onClick={[Function]}
+                        data-selection-index={2}
+                        data-selection-span={3}
                         onKeyUp={[Function]}
                         role="row"
                         style={Object {}}
@@ -9026,6 +9571,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     font-style: normal;
                                     font-weight: normal;
                                     speak: none;
+                                    text-decoration: inherit;
                                   }
                               data-icon-name="Tag"
                             >
@@ -9048,6 +9594,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     color: #605e5c;
                                     cursor: default;
                                     display: flex;
+                                    flex-shrink: 0;
                                     font-size: 12px;
                                     height: 48px;
                                     justify-content: center;
@@ -9073,6 +9620,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     top: 1px;
                                     z-index: 1;
                                   }
+                                  :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                    border: 1px solid #ffffff;
+                                    bottom: 1px;
+                                    content: "";
+                                    left: 1px;
+                                    outline: 1px solid #605e5c;
+                                    position: absolute;
+                                    right: 1px;
+                                    top: 1px;
+                                    z-index: 1;
+                                  }
                                   &:hover {
                                     background-color: #edebe9;
                                   }
@@ -9080,6 +9638,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     background-color: #e1dfdd;
                                   }
                               data-is-focusable={false}
+                              data-selection-disabled={true}
                               onClick={[Function]}
                               type="button"
                             >
@@ -9095,6 +9654,7 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       font-style: normal;
                                       font-weight: normal;
                                       speak: none;
+                                      text-decoration: inherit;
                                       transform-origin: 50% 50%;
                                       transform: rotate(90deg);
                                       transition: transform .1s linear;
@@ -9114,11 +9674,14 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   font-size: 16px;
                                   font-weight: 600;
                                   outline: 0px;
+                                  overflow: hidden;
                                   padding-left: 12px;
                                   text-overflow: ellipsis;
                                   white-space: nowrap;
                                 }
+                            data-selection-invoke={true}
                             id="GroupHeader7"
+                            onClick={[Function]}
                             role="gridcell"
                           >
                             <span>
@@ -9163,7 +9726,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               role="presentation"
                             >
                               <div
-                                aria-level={2}
                                 aria-rowindex={6}
                                 aria-selected={false}
                                 className=
@@ -9216,6 +9778,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       top: 1px;
                                       z-index: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                      border: 1px solid #605e5c;
+                                      bottom: 1px;
+                                      content: "";
+                                      left: 1px;
+                                      outline: 1px solid #ffffff;
+                                      position: absolute;
+                                      right: 1px;
+                                      top: 1px;
+                                      z-index: 1;
+                                    }
                                     .ms-List-cell:first-child &:before {
                                       display: none;
                                     }
@@ -9235,6 +9808,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     .ms-Fabric--isFocusVisible &:focus .ms-DetailsRow-check {
                                       opacity: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus .ms-DetailsRow-check {
+                                      opacity: 1;
+                                    }
                                     & .ms-GroupSpacer {
                                       flex-grow: 0;
                                       flex-shrink: 0;
@@ -9245,16 +9821,12 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                 data-item-index={2}
                                 data-selection-index={2}
                                 data-selection-touch-invoke={true}
+                                data-tabster="{\\"uncontrolled\\": {}}"
                                 id="row0-2"
                                 onFocus={[Function]}
                                 onKeyDown={[Function]}
                                 onMouseDownCapture={[Function]}
                                 role="row"
-                                style={
-                                  Object {
-                                    "minWidth": 300,
-                                  }
-                                }
                               >
                                 <span
                                   className="ms-GroupSpacer"
@@ -9277,8 +9849,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   role="presentation"
                                 >
                                   <div
-                                    aria-colindex={2}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9299,6 +9869,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9334,8 +9915,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     2
                                   </div>
                                   <div
-                                    aria-colindex={3}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9356,6 +9935,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9391,8 +9981,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     Item 2
                                   </div>
                                   <div
-                                    aria-colindex={4}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9413,6 +10001,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9448,21 +10047,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     2
                                   </div>
                                 </div>
-                                <span
-                                  aria-checked={false}
-                                  className=
-
-                                      {
-                                        bottom: 0px;
-                                        display: none;
-                                        left: 0px;
-                                        position: absolute;
-                                        right: 0px;
-                                        top: -1px;
-                                      }
-                                  data-selection-toggle={true}
-                                  role="checkbox"
-                                />
                               </div>
                             </div>
                             <div
@@ -9472,7 +10056,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               role="presentation"
                             >
                               <div
-                                aria-level={2}
                                 aria-rowindex={7}
                                 aria-selected={false}
                                 className=
@@ -9525,6 +10108,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       top: 1px;
                                       z-index: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                      border: 1px solid #605e5c;
+                                      bottom: 1px;
+                                      content: "";
+                                      left: 1px;
+                                      outline: 1px solid #ffffff;
+                                      position: absolute;
+                                      right: 1px;
+                                      top: 1px;
+                                      z-index: 1;
+                                    }
                                     .ms-List-cell:first-child &:before {
                                       display: none;
                                     }
@@ -9544,6 +10138,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     .ms-Fabric--isFocusVisible &:focus .ms-DetailsRow-check {
                                       opacity: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus .ms-DetailsRow-check {
+                                      opacity: 1;
+                                    }
                                     & .ms-GroupSpacer {
                                       flex-grow: 0;
                                       flex-shrink: 0;
@@ -9554,16 +10151,12 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                 data-item-index={3}
                                 data-selection-index={3}
                                 data-selection-touch-invoke={true}
+                                data-tabster="{\\"uncontrolled\\": {}}"
                                 id="row0-3"
                                 onFocus={[Function]}
                                 onKeyDown={[Function]}
                                 onMouseDownCapture={[Function]}
                                 role="row"
-                                style={
-                                  Object {
-                                    "minWidth": 300,
-                                  }
-                                }
                               >
                                 <span
                                   className="ms-GroupSpacer"
@@ -9586,8 +10179,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   role="presentation"
                                 >
                                   <div
-                                    aria-colindex={2}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9608,6 +10199,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9643,8 +10245,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     3
                                   </div>
                                   <div
-                                    aria-colindex={3}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9665,6 +10265,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9700,8 +10311,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     Item 3
                                   </div>
                                   <div
-                                    aria-colindex={4}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9722,6 +10331,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9757,21 +10377,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     3
                                   </div>
                                 </div>
-                                <span
-                                  aria-checked={false}
-                                  className=
-
-                                      {
-                                        bottom: 0px;
-                                        display: none;
-                                        left: 0px;
-                                        position: absolute;
-                                        right: 0px;
-                                        top: -1px;
-                                      }
-                                  data-selection-toggle={true}
-                                  role="checkbox"
-                                />
                               </div>
                             </div>
                             <div
@@ -9781,7 +10386,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                               role="presentation"
                             >
                               <div
-                                aria-level={2}
                                 aria-rowindex={8}
                                 aria-selected={false}
                                 className=
@@ -9834,6 +10438,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                       top: 1px;
                                       z-index: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                                      border: 1px solid #605e5c;
+                                      bottom: 1px;
+                                      content: "";
+                                      left: 1px;
+                                      outline: 1px solid #ffffff;
+                                      position: absolute;
+                                      right: 1px;
+                                      top: 1px;
+                                      z-index: 1;
+                                    }
                                     .ms-List-cell:first-child &:before {
                                       display: none;
                                     }
@@ -9853,6 +10468,9 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     .ms-Fabric--isFocusVisible &:focus .ms-DetailsRow-check {
                                       opacity: 1;
                                     }
+                                    :host(.ms-Fabric--isFocusVisible) &:focus .ms-DetailsRow-check {
+                                      opacity: 1;
+                                    }
                                     & .ms-GroupSpacer {
                                       flex-grow: 0;
                                       flex-shrink: 0;
@@ -9863,16 +10481,12 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                 data-item-index={4}
                                 data-selection-index={4}
                                 data-selection-touch-invoke={true}
+                                data-tabster="{\\"uncontrolled\\": {}}"
                                 id="row0-4"
                                 onFocus={[Function]}
                                 onKeyDown={[Function]}
                                 onMouseDownCapture={[Function]}
                                 role="row"
-                                style={
-                                  Object {
-                                    "minWidth": 300,
-                                  }
-                                }
                               >
                                 <span
                                   className="ms-GroupSpacer"
@@ -9895,8 +10509,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                   role="presentation"
                                 >
                                   <div
-                                    aria-colindex={2}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9917,6 +10529,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -9952,8 +10575,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     4
                                   </div>
                                   <div
-                                    aria-colindex={3}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -9974,6 +10595,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -10009,8 +10641,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     Item 4
                                   </div>
                                   <div
-                                    aria-colindex={4}
-                                    aria-readonly={true}
                                     className=
                                         ms-DetailsRow-cell
                                         {
@@ -10031,6 +10661,17 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                           border: 0;
                                         }
                                         .ms-Fabric--isFocusVisible &:focus:after {
+                                          border: 1px solid #605e5c;
+                                          bottom: 0px;
+                                          content: "";
+                                          left: 0px;
+                                          outline: 1px solid #ffffff;
+                                          position: absolute;
+                                          right: 0px;
+                                          top: 0px;
+                                          z-index: 1;
+                                        }
+                                        :host(.ms-Fabric--isFocusVisible) &:focus:after {
                                           border: 1px solid #605e5c;
                                           bottom: 0px;
                                           content: "";
@@ -10066,21 +10707,6 @@ exports[`DetailsList renders List with hidden checkboxes correctly 1`] = `
                                     4
                                   </div>
                                 </div>
-                                <span
-                                  aria-checked={false}
-                                  className=
-
-                                      {
-                                        bottom: 0px;
-                                        display: none;
-                                        left: 0px;
-                                        position: absolute;
-                                        right: 0px;
-                                        top: -1px;
-                                      }
-                                  data-selection-toggle={true}
-                                  role="checkbox"
-                                />
                               </div>
                             </div>
                           </div>

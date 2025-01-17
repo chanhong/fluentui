@@ -56,14 +56,6 @@ const getLinkStyles = (
         ':focus': {
           outline: 'none',
         },
-        [`.${IsFocusVisibleClassName} &:focus`]: {
-          outline: `1px solid ${semanticColors.focusBorder}`,
-        },
-        [`.${IsFocusVisibleClassName} &:focus:after`]: {
-          content: 'attr(data-content)',
-          position: 'relative',
-          border: 0,
-        },
       },
     },
     !isLinkInOverflowMenu && [
@@ -74,6 +66,15 @@ const getLinkStyles = (
         marginRight: 8,
         textAlign: 'center',
         selectors: {
+          [`.${IsFocusVisibleClassName} &:focus, :host(.${IsFocusVisibleClassName}) &:focus`]: {
+            outline: `1px solid ${semanticColors.focusBorder}`,
+          },
+
+          [`.${IsFocusVisibleClassName} &:focus:after, :host(.${IsFocusVisibleClassName}) &:focus:after`]: {
+            content: 'attr(data-content)',
+            position: 'relative',
+            border: 0,
+          },
           ':before': {
             backgroundColor: 'transparent',
             bottom: 0,
@@ -110,9 +111,9 @@ const getLinkStyles = (
 
           selectors: {
             ':focus': {
-              outlineOffset: '-1px',
+              outlineOffset: '-2px',
             },
-            [`.${IsFocusVisibleClassName} &:focus::before`]: {
+            [`.${IsFocusVisibleClassName} &:focus::before, :host(.${IsFocusVisibleClassName}) &:focus::before`]: {
               height: 'auto',
               background: 'transparent',
               transition: 'none',
@@ -144,7 +145,7 @@ const getLinkStyles = (
                   backgroundColor: semanticColors.primaryButtonBackgroundHovered,
                   color: semanticColors.primaryButtonText,
                 },
-                '&:active': {
+                ':active': {
                   backgroundColor: semanticColors.primaryButtonBackgroundPressed,
                   color: semanticColors.primaryButtonText,
                 },
@@ -156,6 +157,11 @@ const getLinkStyles = (
                 },
               },
             },
+            // eslint-disable-next-line @fluentui/max-len
+            [`.${IsFocusVisibleClassName} &.${classNames.linkIsSelected}:focus, :host(.${IsFocusVisibleClassName}) &.${classNames.linkIsSelected}:focus`]:
+              {
+                outlineColor: semanticColors.primaryButtonText,
+              },
           },
         },
       ],
@@ -218,10 +224,10 @@ export const getStyles = (props: IPivotStyleProps): IPivotStyles => {
       classNames.linkInMenu,
       ...getLinkStyles(props, classNames, true),
       {
-        textAlign: 'left',
-        width: '100%',
+        justifyContent: 'start',
         height: 36,
         lineHeight: 36,
+        width: '100%',
       },
     ],
     linkIsSelected: [

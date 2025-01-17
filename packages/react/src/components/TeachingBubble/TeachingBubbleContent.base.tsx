@@ -48,7 +48,7 @@ export const TeachingBubbleContentBase: React.FunctionComponent<ITeachingBubbleP
     secondaryButtonProps,
     headline,
     hasCondensedHeadline,
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     hasCloseButton = props.hasCloseIcon,
     onDismiss,
     closeButtonAriaLabel,
@@ -74,7 +74,7 @@ export const TeachingBubbleContentBase: React.FunctionComponent<ITeachingBubbleP
   const onKeyDown = React.useCallback(
     (ev: React.KeyboardEvent<HTMLElement> | KeyboardEvent): void => {
       if (onDismiss) {
-        // eslint-disable-next-line deprecation/deprecation
+        // eslint-disable-next-line @typescript-eslint/no-deprecated
         if (ev.which === KeyCodes.escape) {
           onDismiss(ev);
         }
@@ -128,8 +128,8 @@ export const TeachingBubbleContentBase: React.FunctionComponent<ITeachingBubbleP
       <Stack className={classNames.footer} horizontal horizontalAlign={customFooterContent ? 'space-between' : 'end'}>
         <Stack.Item align="center">{<span>{customFooterContent}</span>}</Stack.Item>
         <Stack.Item>
-          {secondaryButtonProps && <DefaultButton {...secondaryButtonProps} className={classNames.secondaryButton} />}
           {primaryButtonProps && <PrimaryButton {...primaryButtonProps} className={classNames.primaryButton} />}
+          {secondaryButtonProps && <DefaultButton {...secondaryButtonProps} className={classNames.secondaryButton} />}
         </Stack.Item>
       </Stack>
     );

@@ -40,7 +40,7 @@ export class FacepileBase extends React.Component<IFacepileProps, {}> {
   public render(): JSX.Element {
     let { overflowButtonProps } = this.props;
     const {
-      chevronButtonProps, // eslint-disable-line deprecation/deprecation
+      chevronButtonProps, // eslint-disable-line @typescript-eslint/no-deprecated
       maxDisplayablePersonas,
       personas,
       overflowPersonas,
@@ -104,16 +104,22 @@ export class FacepileBase extends React.Component<IFacepileProps, {}> {
     singlePersona: boolean,
     showTooltip: boolean,
   ): JSX.Element[] {
-    const { onRenderPersona = this._getPersonaControl, onRenderPersonaCoin = this._getPersonaCoinControl } = this.props;
+    const {
+      onRenderPersona = this._getPersonaControl,
+      onRenderPersonaCoin = this._getPersonaCoinControl,
+      onRenderPersonaWrapper,
+    } = this.props;
     return personas.map((persona: IFacepilePersona, index: number) => {
       const personaControl: JSX.Element | null = singlePersona
         ? onRenderPersona(persona, this._getPersonaControl)
         : onRenderPersonaCoin(persona, this._getPersonaCoinControl);
+      const defaultPersonaRender = persona.onClick
+        ? () => this._getElementWithOnClickEvent(personaControl, persona, showTooltip, index)
+        : () => this._getElementWithoutOnClickEvent(personaControl, persona, showTooltip, index);
+
       return (
         <li key={`${singlePersona ? 'persona' : 'personaCoin'}-${index}`} className={this._classNames.member}>
-          {persona.onClick
-            ? this._getElementWithOnClickEvent(personaControl, persona, showTooltip, index)
-            : this._getElementWithoutOnClickEvent(personaControl, persona, showTooltip, index)}
+          {onRenderPersonaWrapper ? onRenderPersonaWrapper(persona, defaultPersonaRender) : defaultPersonaRender()}
         </li>
       );
     });

@@ -44,18 +44,18 @@ export const CalendarGridDayCell: React.FunctionComponent<ICalendarGridDayCellPr
     let targetDate: Date | undefined = undefined;
     let direction = 1; // by default search forward
 
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     if (ev.which === KeyCodes.up) {
       targetDate = addWeeks(date, -1);
       direction = -1;
-      // eslint-disable-next-line deprecation/deprecation
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
     } else if (ev.which === KeyCodes.down) {
       targetDate = addWeeks(date, 1);
-      // eslint-disable-next-line deprecation/deprecation
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
     } else if (ev.which === getRTLSafeKeyCode(KeyCodes.left)) {
       targetDate = addDays(date, -1);
       direction = -1;
-      // eslint-disable-next-line deprecation/deprecation
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
     } else if (ev.which === getRTLSafeKeyCode(KeyCodes.right)) {
       targetDate = addDays(date, 1);
     }
@@ -193,7 +193,7 @@ export const CalendarGridDayCell: React.FunctionComponent<ICalendarGridDayCellPr
   };
 
   const onDayKeyDown = (ev: React.KeyboardEvent<HTMLElement>): void => {
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     if (ev.which === KeyCodes.enter) {
       onSelectDate?.(day.originalDate);
     } else {
@@ -225,6 +225,7 @@ export const CalendarGridDayCell: React.FunctionComponent<ICalendarGridDayCellPr
       ref={(element: HTMLTableCellElement) => {
         customDayCellRef?.(element, day.originalDate, classNames);
         day.setRef(element);
+        isNavigatedDate && (navigatedDayRef.current = element);
       }}
       aria-hidden={ariaHidden}
       aria-disabled={!ariaHidden && !day.isInBounds}
@@ -236,8 +237,7 @@ export const CalendarGridDayCell: React.FunctionComponent<ICalendarGridDayCellPr
       onKeyDown={!ariaHidden ? onDayKeyDown : undefined}
       role="gridcell"
       tabIndex={isNavigatedDate ? 0 : undefined}
-      aria-readonly="true"
-      aria-current={day.isSelected ? 'date' : undefined}
+      aria-current={day.isToday ? 'date' : undefined}
       aria-selected={day.isInBounds ? day.isSelected : undefined}
       data-is-focusable={!ariaHidden && (allFocusable || (day.isInBounds ? true : undefined))}
     >
@@ -251,7 +251,6 @@ export const CalendarGridDayCell: React.FunctionComponent<ICalendarGridDayCellPr
         )}
         aria-label={ariaLabel}
         id={isNavigatedDate ? activeDescendantId : undefined}
-        ref={isNavigatedDate ? navigatedDayRef : undefined}
         disabled={!ariaHidden && !day.isInBounds}
         type="button"
         tabIndex={-1}

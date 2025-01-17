@@ -60,6 +60,10 @@ export interface IDetailsColumnProps extends React.ClassAttributes<DetailsColumn
    */
   onColumnContextMenu?: (column: IColumn, ev: React.MouseEvent<HTMLElement>) => void;
   /**
+   * Callback fired when keydown event occurs.
+   */
+  onColumnKeyDown?: (ev: React.KeyboardEvent, column: IColumn) => void;
+  /**
    * The drag and drop helper for the component instance.
    */
   dragDropHelper?: IDragDropHelper | null;
@@ -200,4 +204,38 @@ export interface IDetailsColumnStyles {
  */
 export interface IDetailsColumnFilterIconProps extends IIconProps {
   columnProps?: IDetailsColumnProps;
+}
+
+/**
+ * {@docCategory DetailsList}
+ */
+export interface IDetailsColumnFieldProps {
+  /**
+   * Item data to render.
+   */
+  item: any;
+  /**
+   * Index of the item in its list.
+   */
+  itemIndex: number;
+  /**
+   * Whether or not the row is selected.
+   */
+  isSelected?: boolean;
+  /**
+   * Column schema information.
+   */
+  column: IColumn;
+  /**
+   * Key representing the cell value, for change-detection.
+   */
+  cellValueKey?: string;
+  /**
+   * Class name to apply to the cell root element.
+   */
+  className?: string;
+  /**
+   * Original content render function for the cell
+   */
+  onRender: (item?: any, index?: any, column?: IColumn) => React.ReactNode;
 }

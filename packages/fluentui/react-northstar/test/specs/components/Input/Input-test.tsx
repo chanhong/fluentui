@@ -29,6 +29,7 @@ describe('Input', () => {
       onKeyPress: 'input',
       onKeyUp: 'input',
     },
+    disabledTests: ['component-has-root-ref'],
     autoControlledProps: ['value'],
     forwardsRefTo: `Box[className~="${inputSlotClassNames.input}"]`,
   });
@@ -62,7 +63,7 @@ describe('Input', () => {
       const onChange = jest.fn();
       const wrapper = mount(<Input clearable defaultValue={faker.lorem.word()} onChange={onChange} />);
       wrapper.find(`.${inputSlotClassNames.icon}`).first().simulate('click');
-      expect(onChange).toBeCalledTimes(1);
+      expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith(
         expect.objectContaining({ type: 'click' }),
         expect.objectContaining({ value: '' }),
@@ -80,7 +81,7 @@ describe('Input', () => {
         stopPropagation,
         nativeEvent: { stopPropagation: nativeEventStopPropagation },
       });
-      expect(onChange).toBeCalledTimes(1);
+      expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith(
         expect.objectContaining({ type: 'keydown' }),
         expect.objectContaining({ value: '' }),
@@ -99,9 +100,9 @@ describe('Input', () => {
         stopPropagation,
         nativeEvent: { stopPropagation: nativeEventStopPropagation },
       });
-      expect(onChange).not.toBeCalled();
-      expect(stopPropagation).not.toBeCalled();
-      expect(nativeEventStopPropagation).not.toBeCalled();
+      expect(onChange).not.toHaveBeenCalled();
+      expect(stopPropagation).not.toHaveBeenCalled();
+      expect(nativeEventStopPropagation).not.toHaveBeenCalled();
     });
   });
   describe('icon', () => {

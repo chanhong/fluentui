@@ -1,57 +1,46 @@
-import { css, ElementStyles } from '@microsoft/fast-element';
-import { display, ElementDefinitionContext, FoundationElementDefinition } from '@microsoft/fast-foundation';
+import { css } from '@microsoft/fast-element';
+import { forcedColorsStylesheetBehavior } from '../utils/index.js';
 import {
-  accentFillRest,
-  bodyFont,
-  controlCornerRadius,
-  designUnit,
-  foregroundOnAccentRest,
-  neutralFillSecondaryRest,
-  neutralForegroundRest,
-  strokeWidth,
-  typeRampMinus1FontSize,
-  typeRampMinus1LineHeight,
-} from '../design-tokens';
+  badgeBaseStyles,
+  badgeFilledStyles,
+  badgeGhostStyles,
+  badgeOutlineStyles,
+  badgeSizeStyles,
+  badgeTintStyles,
+} from '../styles/index.js';
+import { borderRadiusMedium, borderRadiusNone, borderRadiusSmall } from '../theme/design-tokens.js';
+import { extraSmallState, roundedState, smallState, squareState, tinyState } from '../styles/states/index.js';
+// why is the border not showing up?
+/** Badge styles
+ * @public
+ */
+export const styles = css`
+  :host(${squareState}) {
+    border-radius: ${borderRadiusNone};
+  }
 
-export const badgeStyles: (
-  context: ElementDefinitionContext,
-  definition: FoundationElementDefinition,
-) => ElementStyles = (context: ElementDefinitionContext, definition: FoundationElementDefinition) =>
-  css`
-    ${display('inline-block')} :host {
-      box-sizing: border-box;
-      font-family: ${bodyFont};
-      font-size: ${typeRampMinus1FontSize};
-      line-height: ${typeRampMinus1LineHeight};
-    }
+  :host(${roundedState}) {
+    border-radius: ${borderRadiusMedium};
+  }
 
-    .control {
-      border-radius: calc(${controlCornerRadius} * 1px);
-      padding: calc(((${designUnit} * 0.5) - ${strokeWidth}) * 1px) calc((${designUnit} - ${strokeWidth}) * 1px);
-      border: calc(${strokeWidth} * 1px) solid transparent;
-    }
+  :host(${roundedState}${tinyState}),
+  :host(${roundedState}${extraSmallState}),
+  :host(${roundedState}${smallState}) {
+    border-radius: ${borderRadiusSmall};
+  }
 
-    :host(.lightweight) .control {
-      background: transparent;
-      color: ${neutralForegroundRest};
-      font-weight: 600;
+  ${badgeSizeStyles}
+  ${badgeFilledStyles}
+  ${badgeGhostStyles}
+  ${badgeOutlineStyles}
+  ${badgeTintStyles}
+  ${badgeBaseStyles}
+`.withBehaviors(
+  forcedColorsStylesheetBehavior(css`
+    :host,
+    :host([appearance='outline']),
+    :host([appearance='tint']) {
+      border-color: CanvasText;
     }
-
-    :host(.accent) .control {
-      background: ${accentFillRest};
-      color: ${foregroundOnAccentRest};
-    }
-
-    :host(.neutral) .control {
-      background: ${neutralFillSecondaryRest};
-      color: ${neutralForegroundRest};
-    }
-
-    :host([circular]) .control {
-      border-radius: 100px;
-      min-width: calc(${typeRampMinus1LineHeight} - calc(${designUnit} * 1px));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  `;
+  `),
+);

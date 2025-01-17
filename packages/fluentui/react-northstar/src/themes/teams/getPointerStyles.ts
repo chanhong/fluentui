@@ -1,9 +1,9 @@
 import { ICSSInJSStyle } from '@fluentui/styles';
-import * as PopperJs from '@popperjs/core';
+import type { BasePlacement as PopperJsBasePlacement } from '@popperjs/core';
 
 type GetContainerStylesOptions = {
   padding: string;
-  placement: PopperJs.BasePlacement;
+  placement: PopperJsBasePlacement;
 };
 
 type GetPointerStylesOptions = {
@@ -16,7 +16,7 @@ type GetPointerStylesOptions = {
   height: string;
   width: string;
 
-  placement: PopperJs.BasePlacement;
+  placement: PopperJsBasePlacement;
   rtl: boolean;
   svg?: string;
 };
@@ -41,7 +41,7 @@ export const getContainerStyles = (options: GetContainerStylesOptions): ICSSInJS
 };
 
 export const getPointerStyles = (options: GetPointerStylesOptions): ICSSInJSStyle => {
-  const { backgroundColor, borderColor, borderSize, gap, height, padding, placement, svg, width } = options;
+  const { backgroundColor, borderColor, rtl, borderSize, gap, height, padding, placement, svg, width } = options;
 
   return {
     display: 'block',
@@ -188,14 +188,14 @@ export const getPointerStyles = (options: GetPointerStylesOptions): ICSSInJSStyl
           width: height,
 
           left: 0,
-          transform: 'rotate(180deg) /* @noflip */',
+          transform: rtl ? 'rotate(0) /* @noflip */' : 'rotate(180deg) /* @noflip */',
         }),
         ...(placement === 'right' && {
           height: width,
           width: height,
 
           right: 0,
-          transform: 'rotate(0deg) /* @noflip */',
+          transform: rtl ? 'rotate(180deg) /* @noflip */' : 'rotate(0) /* @noflip */',
         }),
       },
       '::after': undefined,

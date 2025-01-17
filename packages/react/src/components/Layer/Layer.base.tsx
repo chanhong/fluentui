@@ -1,39 +1,92 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore "react-portal-compat-context" uses v9 configs via path aliases
+import { usePortalCompat } from '@fluentui/react-portal-compat-context';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Fabric } from '../../Fabric';
-import { classNamesFunction, setPortalAttribute, setVirtualParent } from '../../Utilities';
-import { registerLayer, getDefaultTarget, unregisterLayer } from './Layer.notification';
-import { useMergedRefs, useWarnings } from '@fluentui/react-hooks';
-import { useDocument } from '../../WindowProvider';
+import {
+  classNamesFunction,
+  css,
+  getDocument,
+  setPortalAttribute,
+  setVirtualParent,
+  FocusRectsProvider,
+  FocusRectsContext,
+  IsFocusVisibleClassName,
+} from '../../Utilities';
+import {
+  registerLayer,
+  getDefaultTarget,
+  unregisterLayer,
+  getLayerHost,
+  createDefaultLayerHost,
+} from './Layer.notification';
+import { useIsomorphicLayoutEffect, useMergedRefs, useWarnings } from '@fluentui/react-hooks';
 import type { ILayerProps, ILayerStyleProps, ILayerStyles } from './Layer.types';
 
 const getClassNames = classNamesFunction<ILayerStyleProps, ILayerStyles>();
 
+const getFocusVisibility = (providerRef?: React.RefObject<HTMLElement>) => {
+  if (providerRef?.current) {
+    return providerRef.current.classList.contains(IsFocusVisibleClassName);
+  }
+
+  return false;
+};
+
+// We don't want to import Tabster here, so we're using a type that matches the Tabster type to set the flag needed
+// for better interop between Fluent UI V8 and V9.
+interface IHTMLElementWithTabsterFlags extends HTMLElement {
+  __tabsterElementFlags?: {
+    noDirectAriaHidden?: boolean; // When Modalizer sets aria-hidden on everything outside of the modal,
+    // do not set aria-hidden directly on this element, go inside and check its children,
+    // and set aria-hidden on the children. This is to be set on a container that hosts
+    // elements which have the active modal dialog as virtual parent.
+  };
+}
+
 export const LayerBase: React.FunctionComponent<ILayerProps> = React.forwardRef<HTMLDivElement, ILayerProps>(
   (props, ref) => {
+    const registerPortalEl = usePortalCompat();
+
     const rootRef = React.useRef<HTMLSpanElement>(null);
     const mergedRef = useMergedRefs(rootRef, ref);
     const layerRef = React.useRef<HTMLDivElement>();
+    const fabricElementRef = React.useRef<HTMLDivElement>(null);
+    const focusContext = React.useContext(FocusRectsContext);
 
     // Tracks if the layer mount events need to be raised.
     // Required to allow the DOM to render after the layer element is added.
     const [needRaiseLayerMount, setNeedRaiseLayerMount] = React.useState(false);
 
-    const doc = useDocument();
+    // Sets the focus visible className when the FocusRectsProvider for the layer is rendered
+    // This allows the current focus visibility style to be carried over to the layer content
+    const focusRectsRef = React.useCallback(
+      el => {
+        const isFocusVisible = getFocusVisibility(focusContext?.providerRef);
+        if (el && isFocusVisible) {
+          el.classList.add(IsFocusVisibleClassName);
+        }
+      },
+      [focusContext],
+    );
 
     const {
-      eventBubblingEnabled,
-      styles,
-      theme,
-      className,
       children,
+      className,
+      eventBubblingEnabled,
+      fabricProps,
       hostId,
+      insertFirst,
       onLayerDidMount = () => undefined,
-      // eslint-disable-next-line deprecation/deprecation
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
       onLayerMounted = () => undefined,
       onLayerWillUnmount,
-      insertFirst,
+      styles,
+      theme,
     } = props;
+
+    const fabricRef = useMergedRefs(fabricElementRef, fabricProps?.ref, focusRectsRef);
 
     const classNames = getClassNames(styles!, {
       theme: theme!,
@@ -43,16 +96,29 @@ export const LayerBase: React.FunctionComponent<ILayerProps> = React.forwardRef<
 
     // Returns the user provided hostId props element, the default target selector,
     // or undefined if document doesn't exist.
-    const getHost = (): Node | undefined => {
-      if (!doc) {
-        return undefined;
-      }
-
+    const getHost = (doc: Document, shadowRoot: ShadowRoot | null = null): Node | null => {
+      const root = shadowRoot ?? doc;
       if (hostId) {
-        return doc.getElementById(hostId) as Node;
+        const layerHost = getLayerHost(hostId);
+
+        if (layerHost) {
+          return layerHost.rootRef.current ?? null;
+        }
+
+        return root.getElementById(hostId) ?? null;
       } else {
         const defaultHostSelector = getDefaultTarget();
-        return defaultHostSelector ? (doc.querySelector(defaultHostSelector) as Node) : doc.body;
+
+        // Find the host.
+        let host: Node | null = defaultHostSelector ? (root.querySelector(defaultHostSelector) as Node) : null;
+
+        // If no host is available, create a container for injecting layers in.
+        // Having a container scopes layout computation.
+        if (!host) {
+          host = createDefaultLayerHost(doc, shadowRoot);
+        }
+
+        return host;
       }
     };
 
@@ -72,16 +138,36 @@ export const LayerBase: React.FunctionComponent<ILayerProps> = React.forwardRef<
 
     // If a doc or host exists, it will remove and update layer parentNodes.
     const createLayerElement = () => {
-      const host = getHost();
+      const doc = getDocument(rootRef.current);
+      const shadowRoot = (rootRef.current?.getRootNode() as ShadowRoot)?.host
+        ? (rootRef?.current?.getRootNode() as ShadowRoot)
+        : undefined;
 
-      if (!doc || !host) {
+      if (!doc || (!doc && !shadowRoot)) {
         return;
       }
+
+      const host = getHost(doc, shadowRoot) as IHTMLElementWithTabsterFlags | null;
+
+      if (!host) {
+        return;
+      }
+
+      // Tabster in V9 sets aria-hidden on the elements outside of the modal dialog. And it doesn't set aria-hidden
+      // on the virtual children of the dialog. But the host element itself is not a virtual child of a dialog, it
+      // might contain virtual children. noDirectAriaHidden flag makes Tabster to poke inside the element and set
+      // aria-hidden on the children (if they are not virtual children of the active V9 dialog) not on the host element.
+      // To avoid importing Tabster as a dependency here, we just set a flag on the host element which is checked by
+      // Tabster.
+      if (!host.__tabsterElementFlags) {
+        host.__tabsterElementFlags = {};
+      }
+      host.__tabsterElementFlags.noDirectAriaHidden = true;
 
       // Remove and re-create any previous existing layer elements.
       removeLayerElement();
 
-      const el: HTMLDivElement = doc.createElement('div');
+      const el = (host.ownerDocument ?? doc).createElement('div');
 
       el.className = classNames.root!;
       setPortalAttribute(el);
@@ -92,15 +178,20 @@ export const LayerBase: React.FunctionComponent<ILayerProps> = React.forwardRef<
       setNeedRaiseLayerMount(true);
     };
 
-    // eslint-disable-next-line no-restricted-properties
-    React.useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       createLayerElement();
       // Check if the user provided a hostId prop and register the layer with the ID.
       if (hostId) {
         registerLayer(hostId, createLayerElement);
       }
 
+      const unregisterPortalEl = layerRef.current ? registerPortalEl(layerRef.current) : undefined;
+
       return () => {
+        if (unregisterPortalEl) {
+          unregisterPortalEl();
+        }
+
         removeLayerElement();
 
         if (hostId) {
@@ -124,11 +215,18 @@ export const LayerBase: React.FunctionComponent<ILayerProps> = React.forwardRef<
       <span className="ms-layer" ref={mergedRef}>
         {layerRef.current &&
           ReactDOM.createPortal(
-            /* eslint-disable deprecation/deprecation */
-            <Fabric {...(!eventBubblingEnabled && getFilteredEvents())} className={classNames.content}>
-              {children}
-            </Fabric>,
-            /* eslint-enable deprecation/deprecation */
+            <FocusRectsProvider layerRoot providerRef={fabricRef}>
+              {/* eslint-disable @typescript-eslint/no-deprecated */}
+              <Fabric
+                {...(!eventBubblingEnabled && getFilteredEvents())}
+                {...fabricProps}
+                className={css(classNames.content, fabricProps?.className)}
+                ref={fabricRef}
+              >
+                {children}
+              </Fabric>
+              {/* eslint-enable @typescript-eslint/no-deprecated */}
+            </FocusRectsProvider>,
             layerRef.current,
           )}
       </span>

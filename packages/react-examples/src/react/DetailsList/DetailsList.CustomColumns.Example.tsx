@@ -17,7 +17,7 @@ export class DetailsListCustomColumnsExample extends React.Component<{}, IDetail
     const items = createListItems(500);
     this.state = {
       sortedItems: items,
-      columns: _buildColumns(items),
+      columns: this._buildColumns(items),
     };
   }
 
@@ -30,8 +30,6 @@ export class DetailsListCustomColumnsExample extends React.Component<{}, IDetail
         setKey="set"
         columns={columns}
         onRenderItemColumn={_renderItemColumn}
-        onColumnHeaderClick={this._onColumnClick}
-        onItemInvoked={this._onItemInvoked}
         onColumnHeaderContextMenu={this._onColumnHeaderContextMenu}
         ariaLabelForSelectionColumn="Toggle selection"
         ariaLabelForSelectAllCheckbox="Toggle selection for all items"
@@ -55,7 +53,7 @@ export class DetailsListCustomColumnsExample extends React.Component<{}, IDetail
 
     // Reset the items and columns to match the state.
     this.setState({
-      sortedItems: sortedItems,
+      sortedItems,
       columns: columns.map(col => {
         col.isSorted = col.key === column.key;
 
@@ -68,26 +66,32 @@ export class DetailsListCustomColumnsExample extends React.Component<{}, IDetail
     });
   };
 
+  private _buildColumns(items: IExampleItem[]): IColumn[] {
+    const columns = buildColumns(items, false, this._onColumnClick);
+
+    const thumbnailColumn = columns.filter(column => column.name === 'thumbnail')[0];
+
+    // Special case one column's definition.
+    thumbnailColumn.name = '';
+    thumbnailColumn.maxWidth = 50;
+    thumbnailColumn.ariaLabel = 'Thumbnail';
+    thumbnailColumn.onColumnClick = undefined;
+
+    // Indicate that all columns except thumbnail column can be sorted,
+    // and only the description colum should disappear at small screen sizes
+    columns.forEach((column: IColumn) => {
+      if (column.name) {
+        column.showSortIconWhenUnsorted = true;
+        column.isCollapsible = column.name === 'description';
+      }
+    });
+
+    return columns;
+  }
+
   private _onColumnHeaderContextMenu(column: IColumn | undefined, ev: React.MouseEvent<HTMLElement> | undefined): void {
     console.log(`column ${column!.key} contextmenu opened.`);
   }
-
-  private _onItemInvoked(item: any, index: number | undefined): void {
-    alert(`Item ${item.name} at index ${index} has been invoked.`);
-  }
-}
-
-function _buildColumns(items: IExampleItem[]): IColumn[] {
-  const columns = buildColumns(items);
-
-  const thumbnailColumn = columns.filter(column => column.name === 'thumbnail')[0];
-
-  // Special case one column's definition.
-  thumbnailColumn.name = '';
-  thumbnailColumn.maxWidth = 50;
-  thumbnailColumn.ariaLabel = 'Thumbnail';
-
-  return columns;
 }
 
 function _renderItemColumn(item: IExampleItem, index: number, column: IColumn) {
@@ -98,7 +102,11 @@ function _renderItemColumn(item: IExampleItem, index: number, column: IColumn) {
       return <Image src={fieldContent} width={50} height={50} imageFit={ImageFit.cover} />;
 
     case 'name':
-      return <Link href="#">{fieldContent}</Link>;
+      return (
+        <Link href="#" underline>
+          {fieldContent}
+        </Link>
+      );
 
     case 'color':
       return (

@@ -1,6 +1,5 @@
 import { Accessibility } from '@fluentui/accessibility';
 import {
-  ComponentWithAs,
   AutoFocusZone,
   AutoFocusZoneProps,
   FocusTrapZone,
@@ -11,9 +10,10 @@ import {
   useStyles,
   useTelemetry,
   useUnhandledProps,
+  ForwardRefWithAs,
 } from '@fluentui/react-bindings';
 import * as customPropTypes from '@fluentui/react-proptypes';
-import * as PopperJs from '@popperjs/core';
+import type { BasePlacement as PopperJsBasePlacement, Placement as PopperJsPlacement } from '@popperjs/core';
 import cx from 'classnames';
 import * as _ from 'lodash';
 import * as PropTypes from 'prop-types';
@@ -78,7 +78,7 @@ export interface PopupContentProps extends UIComponentProps, ChildrenComponentPr
 }
 
 export type PopupContentStylesProps = Required<Pick<PopupContentProps, 'pointing'>> & {
-  basePlacement: PopperJs.BasePlacement;
+  basePlacement: PopperJsBasePlacement;
   autoSize?: AutoSize;
 };
 
@@ -90,8 +90,7 @@ export const popupContentSlotClassNames: PopupContentSlotClassNames = {
 /**
  * A PopupContent displays the content of a Popup component.
  */
-export const PopupContent: ComponentWithAs<'div', PopupContentProps> &
-  FluentComponentStaticProps<PopupContentProps> = props => {
+export const PopupContent = React.forwardRef<HTMLDivElement, PopupContentProps>((props, ref) => {
   const context = useFluentContext();
   const { setStart, setEnd } = useTelemetry(PopupContent.displayName, context.telemetry);
   setStart();
@@ -162,28 +161,41 @@ export const PopupContent: ComponentWithAs<'div', PopupContentProps> &
       ...((_.keys(trapFocus).length && trapFocus) as FocusTrapZoneProps),
       as: ElementType,
     };
-    element = <FocusTrapZone {...focusTrapZoneProps}>{popupContent}</FocusTrapZone>;
+    element = (
+      <FocusTrapZone innerRef={ref} {...focusTrapZoneProps}>
+        {popupContent}
+      </FocusTrapZone>
+    );
   } else if (autoFocus) {
     const autoFocusZoneProps = {
       ...popupContentProps,
       ...((_.keys(autoFocus).length && autoFocus) as AutoFocusZoneProps),
       as: ElementType,
     };
-    element = <AutoFocusZone {...autoFocusZoneProps}>{popupContent}</AutoFocusZone>;
+    element = (
+      <AutoFocusZone innerRef={ref} {...autoFocusZoneProps}>
+        {popupContent}
+      </AutoFocusZone>
+    );
   } else {
-    element = <ElementType {...popupContentProps}>{popupContent}</ElementType>;
+    element = (
+      <ElementType ref={ref} {...popupContentProps}>
+        {popupContent}
+      </ElementType>
+    );
   }
 
   setEnd();
 
   return element;
-};
+}) as unknown as ForwardRefWithAs<'div', HTMLDivElement, PopupContentProps> &
+  FluentComponentStaticProps<PopupContentProps>;
 
 PopupContent.displayName = 'PopupContent';
 
 PopupContent.propTypes = {
   ...commonPropTypes.createCommon(),
-  placement: PropTypes.oneOf<PopperJs.Placement>([
+  placement: PropTypes.oneOf<PopperJsPlacement>([
     'auto-start',
     'auto',
     'auto-end',

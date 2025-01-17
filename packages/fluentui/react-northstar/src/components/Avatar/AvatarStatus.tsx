@@ -8,13 +8,15 @@ import {
   useUnhandledProps,
   ForwardRefWithAs,
 } from '@fluentui/react-bindings';
-import { commonPropTypes, SizeValue, UIComponentProps, createShorthandFactory, createShorthand } from '../../utils';
+import { commonPropTypes, UIComponentProps, createShorthandFactory, createShorthand } from '../../utils';
 import * as customPropTypes from '@fluentui/react-proptypes';
 import * as PropTypes from 'prop-types';
 import { ShorthandValue, FluentComponentStaticProps } from '../../types';
 import { Accessibility, statusBehavior as avatarStatusBehavior, StatusBehaviorProps } from '@fluentui/accessibility';
 import { AvatarStatusIcon, AvatarStatusIconProps } from './AvatarStatusIcon';
+import { AvatarStatusImage, AvatarStatusImageProps } from './AvatarStatusImage';
 import { statusClassName } from '../Status/Status';
+import { AvatarSizeValue } from './Avatar';
 
 export interface AvatarStatusProps extends UIComponentProps {
   /** Accessibility behavior if overridden by the user. */
@@ -26,8 +28,11 @@ export interface AvatarStatusProps extends UIComponentProps {
   /** Shorthand for the icon, to provide customizing status */
   icon?: ShorthandValue<AvatarStatusIconProps>;
 
+  /** Shorthand for the image. */
+  image?: ShorthandValue<AvatarStatusImageProps>;
+
   /** Size multiplier */
-  size?: SizeValue;
+  size?: AvatarSizeValue;
 
   /** The pre-defined state values which can be consumed directly. */
   state?: 'success' | 'info' | 'warning' | 'error' | 'unknown';
@@ -40,12 +45,12 @@ export const avatarStatusClassName = statusClassName;
 /**
  * A AvatarStatus provides a status for the Avatar.
  */
-export const AvatarStatus = (React.forwardRef<HTMLSpanElement, AvatarStatusProps>((props, ref) => {
+export const AvatarStatus = React.forwardRef<HTMLSpanElement, AvatarStatusProps>((props, ref) => {
   const context = useFluentContext();
   const { setStart, setEnd } = useTelemetry(AvatarStatus.displayName, context.telemetry);
   setStart();
 
-  const { className, color, icon, size, state, design, styles, variables } = props;
+  const { className, color, design, icon, image, size, state, styles, variables } = props;
   const { classes } = useStyles<AvatarStatusStylesProps>(AvatarStatus.displayName, {
     className: avatarStatusClassName,
     mapPropsToStyles: () => ({
@@ -68,25 +73,29 @@ export const AvatarStatus = (React.forwardRef<HTMLSpanElement, AvatarStatusProps
   const ElementType = getElementType(props);
   const unhandledProps = useUnhandledProps(AvatarStatus.handledProps, props);
 
-  const iconElement = createShorthand(
-    AvatarStatusIcon,
-    icon as ShorthandValue<AvatarStatusIconProps & { as: 'span' }>,
-    {
-      defaultProps: () => ({
-        state,
+  const iconElement = createShorthand<React.FC<AvatarStatusIconProps>>(AvatarStatusIcon, icon, {
+    defaultProps: () => ({
+      size,
+      state,
+    }),
+  });
+
+  const imageElement = createShorthand(AvatarStatusImage, image, {
+    defaultProps: () =>
+      getA11Props('image', {
+        size,
       }),
-    },
-  );
+  });
 
   const element = (
     <ElementType {...getA11Props('root', { className: classes.root, ref, ...unhandledProps })}>
-      {iconElement}
+      {imageElement || iconElement}
     </ElementType>
   );
   setEnd();
 
   return element;
-}) as unknown) as ForwardRefWithAs<'span', HTMLSpanElement, AvatarStatusProps> & FluentComponentStaticProps;
+}) as unknown as ForwardRefWithAs<'span', HTMLSpanElement, AvatarStatusProps> & FluentComponentStaticProps;
 
 AvatarStatus.displayName = 'AvatarStatus';
 AvatarStatus.propTypes = {
@@ -96,6 +105,7 @@ AvatarStatus.propTypes = {
   }),
   color: PropTypes.string,
   icon: customPropTypes.shorthandAllowingChildren,
+  image: customPropTypes.itemShorthandWithoutJSX,
   size: customPropTypes.size,
   state: PropTypes.oneOf(['success', 'info', 'warning', 'error', 'unknown']),
 };

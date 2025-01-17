@@ -47,6 +47,15 @@ const highContrastItemAndTitleStateMixin: IRawStyle = {
       backgroundColor: 'Highlight',
       borderColor: 'Highlight',
       color: 'HighlightText',
+
+      [`.${IsFocusVisibleClassName} &:focus:after`]: {
+        borderColor: 'HighlightText',
+      },
+    },
+    ['.ms-Checkbox-checkbox']: {
+      [HighContrastSelector]: {
+        borderColor: 'HighlightText',
+      },
     },
     ...highContrastAdjustMixin,
   },
@@ -122,36 +131,63 @@ export const getStyles: IStyleFunction<IDropdownStyleProps, IDropdownStyles> = p
     },
   ];
 
+  const dropdownHeaderStyle: IStyle = [
+    globalClassnames.dropdownItemHeader,
+    {
+      ...fonts.medium,
+      fontWeight: FontWeights.semibold,
+      color: semanticColors.menuHeader,
+      background: 'none',
+      backgroundColor: 'transparent',
+      border: 'none',
+      height: DROPDOWN_ITEM_HEIGHT,
+      lineHeight: DROPDOWN_ITEM_HEIGHT,
+      cursor: 'default',
+      padding: '0 8px',
+      userSelect: 'none',
+      textAlign: 'left',
+      selectors: {
+        [HighContrastSelector]: {
+          color: 'GrayText',
+          ...getHighContrastNoAdjustStyle(),
+        },
+      },
+    },
+  ];
+
   const selectedItemBackgroundColor = semanticColors.menuItemBackgroundPressed;
 
   const itemSelectors = (isSelected: boolean = false) => {
     return {
       selectors: {
-        '&:hover:focus': [
+        '&:hover': [
           {
             color: semanticColors.menuItemTextHovered,
             backgroundColor: !isSelected ? semanticColors.menuItemBackgroundHovered : selectedItemBackgroundColor,
           },
           highContrastItemAndTitleStateMixin,
         ],
-        '&:focus': [
-          {
-            backgroundColor: !isSelected ? 'transparent' : selectedItemBackgroundColor,
-          },
+        '&.is-multi-select:hover': [
+          { backgroundColor: !isSelected ? 'transparent' : selectedItemBackgroundColor },
           highContrastItemAndTitleStateMixin,
         ],
-        '&:active': [
+        '&:active:hover': [
           {
             color: semanticColors.menuItemTextHovered,
-            backgroundColor: !isSelected ? semanticColors.menuBackground : semanticColors.menuItemBackgroundHovered,
+            backgroundColor: !isSelected
+              ? semanticColors.menuItemBackgroundPressed
+              : semanticColors.menuItemBackgroundHovered,
           },
           highContrastItemAndTitleStateMixin,
         ],
-        [`.${IsFocusVisibleClassName} &:focus:after`]: {
+        [`.${IsFocusVisibleClassName} &:focus:after, :host(.${IsFocusVisibleClassName}) &:focus:after`]: {
           left: 0,
           top: 0,
           bottom: 0,
           right: 0,
+          [HighContrastSelector]: {
+            inset: '2px',
+          },
         },
         [HighContrastSelector]: {
           border: 'none',
@@ -361,11 +397,12 @@ export const getStyles: IStyleFunction<IDropdownStyleProps, IDropdownStyles> = p
     dropdownItemsWrapper: { selectors: { '&:focus': { outline: 0 } } },
     dropdownItems: [globalClassnames.dropdownItems, { display: 'block' }],
     dropdownItem: [...dropdownItemStyle, itemSelectors()],
-    dropdownItemSelected: dropdownItemSelected,
-    dropdownItemDisabled: dropdownItemDisabled,
+    dropdownItemSelected,
+    dropdownItemDisabled,
     dropdownItemSelectedAndDisabled: [dropdownItemSelected, dropdownItemDisabled, { backgroundColor: 'transparent' }],
     dropdownItemHidden: [...dropdownItemStyle, { display: 'none' }],
     dropdownDivider: [globalClassnames.dropdownDivider, { height: 1, backgroundColor: semanticColors.bodyDivider }],
+    dropdownDividerHidden: [globalClassnames.dropdownDivider, { display: 'none' }],
     dropdownOptionText: [
       globalClassnames.dropdownOptionText,
       {
@@ -379,29 +416,8 @@ export const getStyles: IStyleFunction<IDropdownStyleProps, IDropdownStyles> = p
         margin: '1px',
       },
     ],
-    dropdownItemHeader: [
-      globalClassnames.dropdownItemHeader,
-      {
-        ...fonts.medium,
-        fontWeight: FontWeights.semibold,
-        color: semanticColors.menuHeader,
-        background: 'none',
-        backgroundColor: 'transparent',
-        border: 'none',
-        height: DROPDOWN_ITEM_HEIGHT,
-        lineHeight: DROPDOWN_ITEM_HEIGHT,
-        cursor: 'default',
-        padding: '0 8px',
-        userSelect: 'none',
-        textAlign: 'left',
-        selectors: {
-          [HighContrastSelector]: {
-            color: 'GrayText',
-            ...getHighContrastNoAdjustStyle(),
-          },
-        },
-      },
-    ],
+    dropdownItemHeader: dropdownHeaderStyle,
+    dropdownItemHeaderHidden: [...dropdownHeaderStyle, { display: 'none' }],
     subComponentStyles: {
       label: { root: { display: 'inline-block' } },
       multiSelectItem: {
@@ -415,9 +431,11 @@ export const getStyles: IStyleFunction<IDropdownStyleProps, IDropdownStyles> = p
         },
         input: {
           selectors: {
-            [`.${IsFocusVisibleClassName} &:focus + label::before`]: {
-              outlineOffset: '0px',
-            },
+            // eslint-disable-next-line @fluentui/max-len
+            [`.${IsFocusVisibleClassName} &:focus + label::before, :host(.${IsFocusVisibleClassName}) &:focus + label::before`]:
+              {
+                outlineOffset: '0px',
+              },
           },
         },
       },

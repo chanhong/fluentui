@@ -35,7 +35,6 @@ exports[`DetailsRow renders details list row correctly 1`] = `
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -80,6 +79,7 @@ exports[`DetailsRow renders details list row correctly 1`] = `
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone2"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -87,7 +87,6 @@ exports[`DetailsRow renders details list row correctly 1`] = `
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header1-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -129,6 +128,17 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -146,6 +156,9 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -181,6 +194,17 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -245,6 +269,7 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -268,7 +293,7 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -287,6 +312,7 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -314,7 +340,7 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -332,7 +358,6 @@ exports[`DetailsRow renders details list row correctly 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header1-key-name"
             aria-sort="none"
             className=
@@ -378,6 +403,17 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -393,6 +429,8 @@ exports[`DetailsRow renders details list row correctly 1`] = `
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -443,9 +481,21 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -465,7 +515,6 @@ exports[`DetailsRow renders details list row correctly 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={3}
             aria-labelledby="header1-name-name"
             aria-sort="none"
             className=
@@ -511,6 +560,17 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -526,6 +586,8 @@ exports[`DetailsRow renders details list row correctly 1`] = `
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -576,9 +638,21 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -598,7 +672,6 @@ exports[`DetailsRow renders details list row correctly 1`] = `
             </span>
           </div>
           <div
-            aria-colindex={4}
             aria-labelledby="header1-value-name"
             aria-sort="none"
             className=
@@ -644,6 +717,17 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -659,6 +743,8 @@ exports[`DetailsRow renders details list row correctly 1`] = `
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -709,9 +795,21 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header1-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -761,6 +859,7 @@ exports[`DetailsRow renders details list row correctly 1`] = `
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone3"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -875,7 +974,6 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -920,6 +1018,7 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone14"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -927,7 +1026,6 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header13-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -969,6 +1067,17 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -986,6 +1095,9 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -1021,6 +1133,17 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -1085,6 +1208,7 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -1108,7 +1232,7 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -1127,6 +1251,7 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -1154,7 +1279,7 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -1172,7 +1297,6 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header13-key-name"
             aria-sort="none"
             className=
@@ -1218,6 +1342,17 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -1233,6 +1368,8 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -1283,9 +1420,21 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header13-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -1305,7 +1454,6 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
             </span>
           </div>
           <div
-            aria-colindex={3}
             aria-labelledby="header13-name-name"
             aria-sort="none"
             className=
@@ -1351,6 +1499,17 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -1366,6 +1525,8 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -1416,9 +1577,21 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header13-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -1438,7 +1611,6 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
             </span>
           </div>
           <div
-            aria-colindex={4}
             aria-labelledby="header13-value-name"
             aria-sort="none"
             className=
@@ -1484,6 +1656,17 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -1499,6 +1682,8 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -1549,9 +1734,21 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header13-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -1601,6 +1798,7 @@ exports[`DetailsRow renders details list row with all rows selected correctly 1`
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone15"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1731,6 +1929,17 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
         top: 1px;
         z-index: 1;
       }
+      :host(.ms-Fabric--isFocusVisible) &:focus:after {
+        border: 1px solid #605e5c;
+        bottom: 1px;
+        content: "";
+        left: 1px;
+        outline: 1px solid #ffffff;
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        z-index: 1;
+      }
       .ms-List-cell:first-child &:before {
         display: none;
       }
@@ -1750,6 +1959,9 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
       .ms-Fabric--isFocusVisible &:focus .ms-DetailsRow-check {
         opacity: 1;
       }
+      :host(.ms-Fabric--isFocusVisible) &:focus .ms-DetailsRow-check {
+        opacity: 1;
+      }
       & .ms-GroupSpacer {
         flex-grow: 0;
         flex-shrink: 0;
@@ -1760,18 +1972,13 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
   data-item-index={0}
   data-selection-index={0}
   data-selection-touch-invoke={true}
+  data-tabster="{\\"uncontrolled\\": {}}"
   onFocus={[Function]}
   onKeyDown={[Function]}
   onMouseDownCapture={[Function]}
   role="row"
-  style={
-    Object {
-      "minWidth": 0,
-    }
-  }
 >
   <div
-    aria-colindex={1}
     className=
         ms-DetailsRow-cell
         ms-DetailsRow-cellCheck
@@ -1796,6 +2003,17 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
           border: 0;
         }
         .ms-Fabric--isFocusVisible &:focus:after {
+          border: 1px solid #605e5c;
+          bottom: 0px;
+          content: "";
+          left: 0px;
+          outline: 1px solid #ffffff;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          z-index: 1;
+        }
+        :host(.ms-Fabric--isFocusVisible) &:focus:after {
           border: 1px solid #605e5c;
           bottom: 0px;
           content: "";
@@ -1867,6 +2085,17 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
             top: 1px;
             z-index: 1;
           }
+          :host(.ms-Fabric--isFocusVisible) &:focus:after {
+            border: 1px solid #ffffff;
+            bottom: 1px;
+            content: "";
+            left: 1px;
+            outline: 1px solid #605e5c;
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            z-index: 1;
+          }
       data-automationid="DetailsRowCheck"
       data-selection-toggle={true}
       role="radio"
@@ -1919,6 +2148,7 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
               ms-Check-circle
               {
                 display: inline-block;
+                text-decoration: inherit;
               }
               {
                 -moz-osx-font-smoothing: grayscale;
@@ -1942,7 +2172,7 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
                 vertical-align: middle;
                 width: 18px;
               }
-              @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                 color: WindowText;
               }
           data-icon-name="CircleRing"
@@ -1961,6 +2191,7 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
               ms-Check-check
               {
                 display: inline-block;
+                text-decoration: inherit;
               }
               {
                 -moz-osx-font-smoothing: grayscale;
@@ -1988,7 +2219,7 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
               &:hover {
                 opacity: 1;
               }
-              @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+              @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                 -ms-high-contrast-adjust: none;
                 forced-color-adjust: none;
               }
@@ -2015,8 +2246,6 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
     role="presentation"
   >
     <div
-      aria-colindex={2}
-      aria-readonly={true}
       className=
           ms-DetailsRow-cell
           {
@@ -2037,6 +2266,17 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
             border: 0;
           }
           .ms-Fabric--isFocusVisible &:focus:after {
+            border: 1px solid #605e5c;
+            bottom: 0px;
+            content: "";
+            left: 0px;
+            outline: 1px solid #ffffff;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            z-index: 1;
+          }
+          :host(.ms-Fabric--isFocusVisible) &:focus:after {
             border: 1px solid #605e5c;
             bottom: 0px;
             content: "";
@@ -2072,8 +2312,6 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
       
     </div>
     <div
-      aria-colindex={3}
-      aria-readonly={true}
       className=
           ms-DetailsRow-cell
           {
@@ -2094,6 +2332,17 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
             border: 0;
           }
           .ms-Fabric--isFocusVisible &:focus:after {
+            border: 1px solid #605e5c;
+            bottom: 0px;
+            content: "";
+            left: 0px;
+            outline: 1px solid #ffffff;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            z-index: 1;
+          }
+          :host(.ms-Fabric--isFocusVisible) &:focus:after {
             border: 1px solid #605e5c;
             bottom: 0px;
             content: "";
@@ -2129,8 +2378,6 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
       
     </div>
     <div
-      aria-colindex={4}
-      aria-readonly={true}
       className=
           ms-DetailsRow-cell
           {
@@ -2151,6 +2398,17 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
             border: 0;
           }
           .ms-Fabric--isFocusVisible &:focus:after {
+            border: 1px solid #605e5c;
+            bottom: 0px;
+            content: "";
+            left: 0px;
+            outline: 1px solid #ffffff;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            z-index: 1;
+          }
+          :host(.ms-Fabric--isFocusVisible) &:focus:after {
             border: 1px solid #605e5c;
             bottom: 0px;
             content: "";
@@ -2186,21 +2444,6 @@ exports[`DetailsRow renders details list row with checkbox visible always correc
       
     </div>
   </div>
-  <span
-    aria-checked={false}
-    className=
-
-        {
-          bottom: 0px;
-          display: none;
-          left: 0px;
-          position: absolute;
-          right: 0px;
-          top: -1px;
-        }
-    data-selection-toggle={true}
-    role="checkbox"
-  />
 </div>
 `;
 
@@ -2239,7 +2482,6 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -2284,6 +2526,7 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone6"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -2291,7 +2534,6 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header5-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -2333,6 +2575,17 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -2350,6 +2603,9 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -2385,6 +2641,17 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -2449,6 +2716,7 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -2472,7 +2740,7 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -2491,6 +2759,7 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -2518,7 +2787,7 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -2536,7 +2805,6 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header5-key-name"
             aria-sort="none"
             className=
@@ -2582,6 +2850,17 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -2597,6 +2876,8 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -2647,9 +2928,21 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header5-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -2669,7 +2962,6 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
             </span>
           </div>
           <div
-            aria-colindex={3}
             aria-labelledby="header5-name-name"
             aria-sort="none"
             className=
@@ -2715,6 +3007,17 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -2730,6 +3033,8 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -2780,9 +3085,21 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header5-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -2802,7 +3119,6 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
             </span>
           </div>
           <div
-            aria-colindex={4}
             aria-labelledby="header5-value-name"
             aria-sort="none"
             className=
@@ -2848,6 +3164,17 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -2863,6 +3190,8 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -2913,9 +3242,21 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header5-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -2965,6 +3306,7 @@ exports[`DetailsRow renders details list row with multiple selections correctly 
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone7"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -3079,7 +3421,6 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
   >
     <div
       aria-colcount={4}
-      aria-readonly="true"
       aria-rowcount={6}
       role="grid"
     >
@@ -3124,6 +3465,7 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
               }
           data-automationid="DetailsHeader"
           data-focuszone-id="FocusZone10"
+          data-tabster="{\\"uncontrolled\\": {}}"
           onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseDownCapture={[Function]}
@@ -3131,7 +3473,6 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
           role="row"
         >
           <div
-            aria-colindex={1}
             aria-labelledby="header9-checkTooltip"
             className=
                 ms-DetailsHeader-cell
@@ -3173,6 +3514,17 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
             onClick={[Function]}
             role="columnheader"
           >
@@ -3190,6 +3542,9 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                       height: 42px;
                     }
                     .ms-Fabric--isFocusVisible &:focus {
+                      opacity: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus {
                       opacity: 1;
                     }
                     {
@@ -3225,6 +3580,17 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                       border: 0;
                     }
                     .ms-Fabric--isFocusVisible &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
                       border: 1px solid #ffffff;
                       bottom: 1px;
                       content: "";
@@ -3289,6 +3655,7 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                         ms-Check-circle
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -3312,7 +3679,7 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                           vertical-align: middle;
                           width: 18px;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           color: WindowText;
                         }
                     data-icon-name="CircleRing"
@@ -3331,6 +3698,7 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                         ms-Check-check
                         {
                           display: inline-block;
+                          text-decoration: inherit;
                         }
                         {
                           -moz-osx-font-smoothing: grayscale;
@@ -3358,7 +3726,7 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                         &:hover {
                           opacity: 1;
                         }
-                        @media screen and (-ms-high-contrast: active), (forced-colors: active){& {
+                        @media screen and (-ms-high-contrast: active), screen and (forced-colors: active){& {
                           -ms-high-contrast-adjust: none;
                           forced-color-adjust: none;
                         }
@@ -3376,7 +3744,6 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
             </span>
           </div>
           <div
-            aria-colindex={2}
             aria-labelledby="header9-key-name"
             aria-sort="none"
             className=
@@ -3422,6 +3789,17 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -3437,6 +3815,8 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
             data-is-focusable="true"
             data-item-key="key"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3487,9 +3867,21 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header9-key"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3509,7 +3901,6 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
             </span>
           </div>
           <div
-            aria-colindex={3}
             aria-labelledby="header9-name-name"
             aria-sort="none"
             className=
@@ -3555,6 +3946,17 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -3570,6 +3972,8 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
             data-is-focusable="true"
             data-item-key="name"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3620,9 +4024,21 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header9-name"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3642,7 +4058,6 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
             </span>
           </div>
           <div
-            aria-colindex={4}
             aria-labelledby="header9-value-name"
             aria-sort="none"
             className=
@@ -3688,6 +4103,17 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                   top: 1px;
                   z-index: 1;
                 }
+                :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                  border: 1px solid #ffffff;
+                  bottom: 1px;
+                  content: "";
+                  left: 1px;
+                  outline: 1px solid #605e5c;
+                  position: absolute;
+                  right: 1px;
+                  top: 1px;
+                  z-index: 1;
+                }
                 &:hover {
                   background: #f3f2f1;
                   color: #323130;
@@ -3703,6 +4129,8 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
             data-is-focusable="true"
             data-item-key="value"
             draggable={false}
+            onBlur={[Function]}
+            onFocus={[Function]}
             role="columnheader"
             style={
               Object {
@@ -3753,9 +4181,21 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                       top: 1px;
                       z-index: 1;
                     }
+                    :host(.ms-Fabric--isFocusVisible) &:focus:after {
+                      border: 1px solid #ffffff;
+                      bottom: 1px;
+                      content: "";
+                      left: 1px;
+                      outline: 1px solid #605e5c;
+                      position: absolute;
+                      right: 1px;
+                      top: 1px;
+                      z-index: 1;
+                    }
                 id="header9-value"
                 onClick={[Function]}
                 onContextMenu={[Function]}
+                onKeyDown={[Function]}
               >
                 <span
                   className=
@@ -3805,6 +4245,7 @@ exports[`DetailsRow renders details list row with one row selected correctly 1`]
                   min-width: 100%;
                 }
             data-focuszone-id="FocusZone11"
+            data-tabster="{\\"uncontrolled\\": {}}"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}

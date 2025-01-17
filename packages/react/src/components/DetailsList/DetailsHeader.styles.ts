@@ -64,7 +64,7 @@ export const getCellStyles = (props: { theme: ITheme; cellStyleProps?: ICellStyl
   ];
 };
 
-export const getStyles = (props: IDetailsHeaderStyleProps): IDetailsHeaderStyles => {
+export const getDetailsHeaderStyles = (props: IDetailsHeaderStyleProps): IDetailsHeaderStyles => {
   const {
     theme,
     className,
@@ -132,7 +132,7 @@ export const getStyles = (props: IDetailsHeaderStyleProps): IDetailsHeaderStyles
       },
       {
         selectors: {
-          [`.${IsFocusVisibleClassName} &:focus`]: {
+          [`.${IsFocusVisibleClassName} &:focus, :host(.${IsFocusVisibleClassName}) &:focus`]: {
             opacity: 1,
           },
         },

@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { classNamesFunction, css, format, divProperties, getNativeProps } from '../../Utilities';
+import {
+  classNamesFunction,
+  css,
+  format,
+  divProperties,
+  getNativeProps,
+  KeyCodes,
+  useFocusRects,
+} from '../../Utilities';
 import { Icon } from '../../Icon';
 import { FocusZone, FocusZoneDirection } from '../../FocusZone';
 import { RatingSize } from './Rating.types';
-import { useId, useWarnings, useControllableValue } from '@fluentui/react-hooks';
+import { useId, useWarnings, useControllableValue, useMergedRefs } from '@fluentui/react-hooks';
 import type { IRatingProps, IRatingStyleProps, IRatingStyles, IRating, IRatingStarProps } from './Rating.types';
 
 const getClassNames = classNamesFunction<IRatingStyleProps, IRatingStyles>();
@@ -75,7 +83,7 @@ const getStarId = (id: string, starNum: number) => {
 };
 
 export const RatingBase: React.FunctionComponent<IRatingProps> = React.forwardRef<HTMLDivElement, IRatingProps>(
-  (props, ref) => {
+  (props, forwardedRef) => {
     const id = useId('Rating');
     const labelId = useId('RatingLabel');
     const {
@@ -84,7 +92,7 @@ export const RatingBase: React.FunctionComponent<IRatingProps> = React.forwardRe
       disabled,
       getAriaLabel,
       styles,
-      // eslint-disable-next-line deprecation/deprecation
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
       min: minFromProps = props.allowZeroStars ? 0 : 1,
       max = 5,
       readOnly,
@@ -105,6 +113,10 @@ export const RatingBase: React.FunctionComponent<IRatingProps> = React.forwardRe
     useDebugWarnings(props);
 
     useComponentRef(props.componentRef, displayRating);
+
+    const rootRef = React.useRef<HTMLDivElement | null>(null);
+    const mergedRootRefs = useMergedRefs(rootRef, forwardedRef);
+    useFocusRects(rootRef);
 
     const divProps = getNativeProps<React.HTMLAttributes<HTMLDivElement>>(props, divProperties);
 
@@ -133,6 +145,34 @@ export const RatingBase: React.FunctionComponent<IRatingProps> = React.forwardRe
         }
       };
 
+      const onStarKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+        // eslint-disable-next-line @typescript-eslint/no-deprecated
+        const { which } = event;
+        let newRating = starNum;
+        switch (which) {
+          case KeyCodes.right:
+          case KeyCodes.down:
+            newRating = Math.min(max, newRating + 1);
+            break;
+          case KeyCodes.left:
+          case KeyCodes.up:
+            newRating = Math.max(1, newRating - 1);
+            break;
+          case KeyCodes.home:
+          case KeyCodes.pageUp:
+            newRating = 1;
+            break;
+          case KeyCodes.end:
+          case KeyCodes.pageDown:
+            newRating = max;
+            break;
+        }
+
+        if (newRating !== starNum && (rating === undefined || Math.ceil(rating) !== newRating)) {
+          setRating(newRating, event);
+        }
+      };
+
       stars.push(
         <button
           className={css(
@@ -142,8 +182,8 @@ export const RatingBase: React.FunctionComponent<IRatingProps> = React.forwardRe
           id={getStarId(id, starNum)}
           key={starNum}
           {...(starNum === Math.ceil(displayRating) && { 'data-is-current': true })}
-          onFocus={onSelectStar}
-          onClick={onSelectStar} // For Safari & Firefox on OSX
+          onKeyDown={onStarKeyDown}
+          onClick={onSelectStar}
           disabled={!!(disabled || readOnly)}
           role="radio"
           aria-hidden={readOnly ? 'true' : undefined}
@@ -172,7 +212,7 @@ export const RatingBase: React.FunctionComponent<IRatingProps> = React.forwardRe
 
     return (
       <div
-        ref={ref}
+        ref={mergedRootRefs}
         className={css('ms-Rating-star', classNames.root, rootSizeClass)}
         aria-label={!readOnly ? normalModeAriaLabel : undefined}
         id={id}

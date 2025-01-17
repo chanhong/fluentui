@@ -8,6 +8,9 @@ import type {
   IDocumentCardTitleStyles,
 } from './DocumentCardTitle.types';
 import type { IProcessedStyleSet } from '../../Styling';
+import { DocumentCardContext } from './DocumentCard.base';
+import { WindowContext } from '@fluentui/react-window-provider';
+import { getWindowEx } from '../../utilities/dom';
 
 const getClassNames = classNamesFunction<IDocumentCardTitleStyleProps, IDocumentCardTitleStyles>();
 
@@ -22,6 +25,8 @@ const TRUNCATION_VERTICAL_OVERFLOW_THRESHOLD = 5;
  * {@docCategory DocumentCard}
  */
 export class DocumentCardTitleBase extends React.Component<IDocumentCardTitleProps, IDocumentCardTitleState> {
+  public static contextType = WindowContext;
+
   private _titleElement = React.createRef<HTMLDivElement>();
   private _classNames: IProcessedStyleSet<IDocumentCardTitleStyles>;
   private _async: Async;
@@ -52,12 +57,13 @@ export class DocumentCardTitleBase extends React.Component<IDocumentCardTitlePro
     }
 
     if (prevProps.shouldTruncate !== this.props.shouldTruncate) {
+      const win = getWindowEx(this.context);
       if (this.props.shouldTruncate) {
         this._truncateTitle();
         this._async.requestAnimationFrame(this._shrinkTitle);
-        this._events.on(window, 'resize', this._updateTruncation);
+        this._events.on(win, 'resize', this._updateTruncation);
       } else {
-        this._events.off(window, 'resize', this._updateTruncation);
+        this._events.off(win, 'resize', this._updateTruncation);
       }
     } else if (this._needMeasurement) {
       this._async.requestAnimationFrame(() => {
@@ -70,7 +76,8 @@ export class DocumentCardTitleBase extends React.Component<IDocumentCardTitlePro
   public componentDidMount(): void {
     if (this.props.shouldTruncate) {
       this._truncateTitle();
-      this._events.on(window, 'resize', this._updateTruncation);
+      const win = getWindowEx(this.context);
+      this._events.on(win, 'resize', this._updateTruncation);
     }
   }
 
@@ -91,22 +98,42 @@ export class DocumentCardTitleBase extends React.Component<IDocumentCardTitlePro
 
     if (shouldTruncate && truncatedTitleFirstPiece && truncatedTitleSecondPiece) {
       return (
-        <div className={this._classNames.root} ref={this._titleElement} title={title}>
-          {truncatedTitleFirstPiece}
-          &hellip;
-          {truncatedTitleSecondPiece}
-        </div>
+        <DocumentCardContext.Consumer>
+          {({ role, tabIndex }) => {
+            return (
+              <div
+                className={this._classNames.root}
+                ref={this._titleElement}
+                title={title}
+                tabIndex={tabIndex}
+                role={role}
+              >
+                {truncatedTitleFirstPiece}
+                &hellip;
+                {truncatedTitleSecondPiece}
+              </div>
+            );
+          }}
+        </DocumentCardContext.Consumer>
       );
     } else {
       return (
-        <div
-          className={this._classNames.root}
-          ref={this._titleElement}
-          title={title}
-          style={this._needMeasurement ? { whiteSpace: 'nowrap' } : undefined}
-        >
-          {title}
-        </div>
+        <DocumentCardContext.Consumer>
+          {({ role, tabIndex }) => {
+            return (
+              <div
+                className={this._classNames.root}
+                ref={this._titleElement}
+                title={title}
+                tabIndex={tabIndex}
+                role={role}
+                style={this._needMeasurement ? { whiteSpace: 'nowrap' } : undefined}
+              >
+                {title}
+              </div>
+            );
+          }}
+        </DocumentCardContext.Consumer>
       );
     }
   }

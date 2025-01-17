@@ -93,6 +93,9 @@ export interface AccordionProps extends UIComponentProps, ChildrenComponentProps
    * Accessibility behavior if overridden by the user.
    */
   accessibility?: Accessibility<AccordionBehaviorProps>;
+
+  /** Manage if panels should be rendered always or based on their state. */
+  alwaysRenderPanels?: boolean;
 }
 
 export type AccordionStylesProps = never;
@@ -108,7 +111,7 @@ export const accordionSlotClassNames: AccordionSlotClassNames = {
  * @accessibility
  * Implements [ARIA Accordion](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) design pattern (keyboard navigation not yet supported).
  */
-export const Accordion = (React.forwardRef<HTMLDListElement, AccordionProps>((props, ref) => {
+export const Accordion = React.forwardRef<HTMLDListElement, AccordionProps>((props, ref) => {
   const context = useFluentContext();
   const { setStart, setEnd } = useTelemetry(Accordion.displayName, context.telemetry);
   setStart();
@@ -124,6 +127,7 @@ export const Accordion = (React.forwardRef<HTMLDListElement, AccordionProps>((pr
     panels,
     renderPanelContent,
     renderPanelTitle,
+    alwaysRenderPanels,
   } = props;
   const alwaysActiveIndex = expanded ? 0 : -1;
 
@@ -276,17 +280,19 @@ export const Accordion = (React.forwardRef<HTMLDListElement, AccordionProps>((pr
           render: renderPanelTitle,
         }),
       );
-      children.push(
-        createShorthand(AccordionContent, content, {
-          defaultProps: () => ({
-            className: accordionSlotClassNames.content,
-            active,
-            id: contentId,
-            accordionTitleId: titleId,
+      if (alwaysRenderPanels || active) {
+        children.push(
+          createShorthand(AccordionContent, content, {
+            defaultProps: () => ({
+              className: accordionSlotClassNames.content,
+              active,
+              id: contentId,
+              accordionTitleId: titleId,
+            }),
+            render: renderPanelContent,
           }),
-          render: renderPanelContent,
-        }),
-      );
+        );
+      }
     });
     return children;
   };
@@ -307,7 +313,7 @@ export const Accordion = (React.forwardRef<HTMLDListElement, AccordionProps>((pr
   setEnd();
 
   return element;
-}) as unknown) as ForwardRefWithAs<'dl', HTMLDListElement, AccordionProps> &
+}) as unknown as ForwardRefWithAs<'dl', HTMLDListElement, AccordionProps> &
   FluentComponentStaticProps<AccordionProps> & {
     Title: typeof AccordionTitle;
     Content: typeof AccordionContent;

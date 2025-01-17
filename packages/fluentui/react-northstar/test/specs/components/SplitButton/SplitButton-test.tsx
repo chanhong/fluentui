@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { keyboardKey } from '@fluentui/accessibility';
 
-import { SplitButton } from 'src/components/SplitButton/SplitButton';
+import { SplitButton, SplitButtonProps } from 'src/components/SplitButton/SplitButton';
 import { splitButtonToggleClassName } from 'src/components/SplitButton/SplitButtonToggle';
 import { isConformant } from 'test/specs/commonTests';
 import { ReactWrapper, CommonWrapper } from 'enzyme';
-import { mountWithProvider, findIntrinsicElement } from '../../../utils';
+import { mountWithProvider, findIntrinsicElement, createTestContainer } from '../../../utils';
 import { menuClassName } from 'src/components/Menu/Menu';
 import { menuItemClassName } from 'src/components/Menu/MenuItem';
 import { menuButtonClassName } from 'src/components/MenuButton/MenuButton';
@@ -23,7 +23,7 @@ const getMenu = (wrapper: ReactWrapper): CommonWrapper => findIntrinsicElement(w
 
 describe('SplitButton', () => {
   isConformant(SplitButton, { testPath: __filename, constructorName: 'SplitButton', autoControlledProps: ['open'] });
-  implementsPopperProps(SplitButton, { requiredProps: { open: true } });
+  implementsPopperProps<SplitButtonProps>(SplitButton, { requiredProps: { open: true } });
 
   describe('open', () => {
     test('is toggled between true and false on toggle button click', () => {
@@ -53,21 +53,29 @@ describe('SplitButton', () => {
     });
 
     test('is false when Alt+ArrowUp is sent to the menu', () => {
-      const wrapper = mountWithProvider(<SplitButton menu={mockMenu} button="test" defaultOpen />);
+      const { testContainer, removeTestContainer } = createTestContainer();
+      const wrapper = mountWithProvider(<SplitButton menu={mockMenu} button="test" defaultOpen />, {
+        attachTo: testContainer,
+      });
 
       getMenu(wrapper).simulate('keydown', { keyCode: keyboardKey.ArrowUp, altKey: true });
 
       expect(getMenuItems(wrapper)).toHaveLength(0);
       expect(document.activeElement).toBe(getMainButton(wrapper).getDOMNode());
+      removeTestContainer();
     });
 
     test('is false when Escape is sent to the menu', () => {
-      const wrapper = mountWithProvider(<SplitButton menu={mockMenu} button="test" defaultOpen />);
+      const { testContainer, removeTestContainer } = createTestContainer();
+      const wrapper = mountWithProvider(<SplitButton menu={mockMenu} button="test" defaultOpen />, {
+        attachTo: testContainer,
+      });
 
       getMenu(wrapper).simulate('keydown', { keyCode: keyboardKey.Escape });
 
       expect(getMenuItems(wrapper)).toHaveLength(0);
       expect(document.activeElement).toBe(getMainButton(wrapper).getDOMNode());
+      removeTestContainer();
     });
 
     test('is false when Tab is sent to the menu', () => {

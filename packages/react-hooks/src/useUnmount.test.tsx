@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactTestUtils from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { useUnmount } from './useUnmount';
 
@@ -14,10 +15,12 @@ describe('useUnmount', () => {
       return <>Test Component</>;
     };
 
-    expect(onUnmount).toBeCalledTimes(0);
+    expect(onUnmount).toHaveBeenCalledTimes(0);
     const wrapper = mount(<TestComponent />);
-    expect(onUnmount).toBeCalledTimes(0);
-    wrapper.unmount();
-    expect(onUnmount).toBeCalledTimes(1);
+    expect(onUnmount).toHaveBeenCalledTimes(0);
+    ReactTestUtils.act(() => {
+      wrapper.unmount();
+    });
+    expect(onUnmount).toHaveBeenCalledTimes(1);
   });
 });

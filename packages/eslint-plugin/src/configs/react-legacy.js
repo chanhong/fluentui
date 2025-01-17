@@ -1,14 +1,25 @@
 // @ts-check
-
-const path = require('path');
 const configHelpers = require('../utils/configHelpers');
+const path = require('path');
+const { reactLegacy: restrictedGlobals } = require('./restricted-globals');
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: [path.join(__dirname, 'react')],
+  extends: [path.join(__dirname, 'base-legacy'), path.join(__dirname, 'react-config')],
 
   rules: {
-    ...configHelpers.getNamingConventionRule(true /* prefixWithI */),
     'jsdoc/check-tag-names': 'off',
+    '@griffel/no-shorthands': 'off',
+    'no-restricted-globals': restrictedGlobals,
   },
+  overrides: [
+    {
+      // Test overrides
+      files: [...configHelpers.testFiles, '**/*.stories.tsx'],
+      rules: {
+        'no-restricted-globals': 'off',
+        'react/jsx-no-bind': 'off',
+      },
+    },
+  ],
 };

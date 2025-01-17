@@ -16,9 +16,10 @@ export const ButtonGridBase: React.FunctionComponent<IButtonGridProps> = React.f
     items,
     columnCount,
     onRenderItem,
-    // eslint-disable-next-line deprecation/deprecation
+    isSemanticRadio,
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     ariaPosInSet = props.positionInSet,
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     ariaSetSize = props.setSize,
     styles,
     doNotContainWithinFocusZone,
@@ -41,14 +42,14 @@ export const ButtonGridBase: React.FunctionComponent<IButtonGridProps> = React.f
       aria-posinset={ariaPosInSet}
       aria-setsize={ariaSetSize}
       id={id}
-      role="grid"
+      role={isSemanticRadio ? 'radiogroup' : 'grid'}
       {...htmlProps}
       className={classNames.root}
     >
-      <tbody>
+      <tbody role={isSemanticRadio ? 'presentation' : 'rowgroup'}>
         {rowsOfItems.map((rows, rowIndex) => {
           return (
-            <tr role={'row'} key={rowIndex}>
+            <tr role={isSemanticRadio ? 'presentation' : 'row'} key={rowIndex}>
               {rows.map((cell, cellIndex: number) => {
                 return (
                   <td role="presentation" key={cellIndex + '-cell'} className={classNames.tableCell}>

@@ -11,14 +11,19 @@ import { DocumentCardType } from './DocumentCard.types';
 import type { IProcessedStyleSet } from '../../Styling';
 import type {
   IDocumentCard,
+  IDocumentCardContext,
   IDocumentCardProps,
   IDocumentCardStyleProps,
   IDocumentCardStyles,
 } from './DocumentCard.types';
+import { WindowContext } from '@fluentui/react-window-provider';
+import { getWindowEx } from '../../utilities/dom';
 
 const getClassNames = classNamesFunction<IDocumentCardStyleProps, IDocumentCardStyles>();
 
 const COMPONENT_NAME = 'DocumentCard';
+
+export const DocumentCardContext = React.createContext<IDocumentCardContext>({});
 
 /**
  * {@docCategory DocumentCard}
@@ -27,6 +32,8 @@ export class DocumentCardBase extends React.Component<IDocumentCardProps, any> i
   public static defaultProps: IDocumentCardProps = {
     type: DocumentCardType.normal,
   };
+
+  public static contextType = WindowContext;
 
   private _rootElement = React.createRef<HTMLDivElement>();
   private _classNames: IProcessedStyleSet<IDocumentCardStyles>;
@@ -41,7 +48,7 @@ export class DocumentCardBase extends React.Component<IDocumentCardProps, any> i
   }
 
   public render(): JSX.Element {
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     const { onClick, onClickHref, children, type, accentColor, styles, theme, className } = this.props;
     const nativeProps = getNativeProps<React.HTMLAttributes<HTMLDivElement>>(this.props, divProperties, [
       'className',
@@ -69,20 +76,19 @@ export class DocumentCardBase extends React.Component<IDocumentCardProps, any> i
     // if this element is actionable it should have an aria role
     const role = this.props.role || (actionable ? (onClick ? 'button' : 'link') : undefined);
     const tabIndex = actionable ? 0 : undefined;
+    const documentCardContextValue = { role, tabIndex };
 
     return (
       <div
         ref={this._rootElement}
-        tabIndex={tabIndex}
-        data-is-focusable={actionable}
-        role={role}
+        role={'group'}
         className={this._classNames.root}
         onKeyDown={actionable ? this._onKeyDown : undefined}
         onClick={actionable ? this._onClick : undefined}
         style={style}
         {...nativeProps}
       >
-        {children}
+        <DocumentCardContext.Provider value={documentCardContextValue}>{children}</DocumentCardContext.Provider>
       </div>
     );
   }
@@ -98,7 +104,7 @@ export class DocumentCardBase extends React.Component<IDocumentCardProps, any> i
   };
 
   private _onKeyDown = (ev: React.KeyboardEvent<HTMLElement>): void => {
-    // eslint-disable-next-line deprecation/deprecation
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     if (ev.which === KeyCodes.enter || ev.which === KeyCodes.space) {
       this._onAction(ev);
     }
@@ -107,14 +113,16 @@ export class DocumentCardBase extends React.Component<IDocumentCardProps, any> i
   private _onAction = (ev: React.SyntheticEvent<HTMLElement>): void => {
     const { onClick, onClickHref, onClickTarget } = this.props;
 
+    const win = getWindowEx(this.context)!; // can only be called on the client
+
     if (onClick) {
       onClick(ev);
     } else if (!onClick && onClickHref) {
       // If no onClick Function was provided and we do have an onClickHref, redirect to the onClickHref
       if (onClickTarget) {
-        window.open(onClickHref, onClickTarget, 'noreferrer noopener nofollow');
+        win.open(onClickHref, onClickTarget, 'noreferrer noopener nofollow');
       } else {
-        window.location.href = onClickHref;
+        win.location.href = onClickHref;
       }
 
       ev.preventDefault();

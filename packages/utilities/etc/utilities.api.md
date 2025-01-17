@@ -7,14 +7,17 @@
 import { DATA_PORTAL_ATTRIBUTE } from '@fluentui/dom-utilities';
 import { elementContains } from '@fluentui/dom-utilities';
 import { elementContainsAttribute } from '@fluentui/dom-utilities';
+import type { ExtendedCSSStyleSheet } from '@fluentui/merge-styles';
 import { findElementRecursive } from '@fluentui/dom-utilities';
+import { getActiveElement } from '@fluentui/dom-utilities';
 import { getChildren } from '@fluentui/dom-utilities';
+import { getEventTarget } from '@fluentui/dom-utilities';
 import { getParent } from '@fluentui/dom-utilities';
 import { getVirtualParent } from '@fluentui/dom-utilities';
 import type { IProcessedStyleSet } from '@fluentui/merge-styles';
 import { IStyleFunction } from '@fluentui/merge-styles';
 import { IStyleFunctionOrObject } from '@fluentui/merge-styles';
-import type { IStyleSet } from '@fluentui/merge-styles';
+import type { IStyleSetBase } from '@fluentui/merge-styles';
 import { isVirtualElement } from '@fluentui/dom-utilities';
 import { IVirtualElement } from '@fluentui/dom-utilities';
 import { Omit as Omit_2 } from '@fluentui/merge-styles';
@@ -22,12 +25,19 @@ import { portalContainsElement } from '@fluentui/dom-utilities';
 import * as React_2 from 'react';
 import { setPortalAttribute } from '@fluentui/dom-utilities';
 import { setVirtualParent } from '@fluentui/dom-utilities';
+import { ShadowConfig } from '@fluentui/merge-styles';
 
 // @public
 export function addDirectionalKeyCode(which: number): void;
 
 // @public
 export function addElementAtIndex<T>(array: T[], index: number, itemToAdd: T): T[];
+
+// @public (undocumented)
+export type AdoptedStylesheetExHook = (stylesheetKey: string, shadowCtx: MergeStylesShadowRootContextValue | undefined, rootMergeStyles: Map<string, ExtendedCSSStyleSheet>, win: Window | undefined) => boolean;
+
+// @public (undocumented)
+export type AdoptedStylesheetHook = (stylesheetKey: string) => boolean;
 
 // @public
 export const allowOverscrollOnElement: (element: HTMLElement | null, events: EventGroup) => void;
@@ -45,8 +55,8 @@ export function appendFunction(parent: any, ...functions: any[]): () => void;
 export function arraysEqual<T>(array1: T[], array2: T[]): boolean;
 
 // @public
-export function asAsync<TProps>(options: IAsAsyncOptions<TProps>): React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<TProps & {
-    asyncPlaceholder?: "symbol" | "object" | "input" | "progress" | "select" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "cite" | "code" | "col" | "colgroup" | "data" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "form" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "ins" | "kbd" | "label" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "meta" | "meter" | "nav" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "script" | "section" | "slot" | "small" | "source" | "span" | "strong" | "style" | "sub" | "summary" | "sup" | "table" | "tbody" | "td" | "template" | "textarea" | "tfoot" | "th" | "thead" | "time" | "title" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "big" | React_2.FunctionComponent<any> | React_2.ComponentClass<any, any> | "keygen" | "menuitem" | "noindex" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "pattern" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view" | undefined;
+export function asAsync<TProps extends {}>(options: IAsAsyncOptions<TProps>): React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<TProps & {
+    asyncPlaceholder?: React_2.ElementType<any> | undefined;
 }> & React_2.RefAttributes<React_2.ElementType<TProps>>>;
 
 // @public
@@ -87,13 +97,13 @@ export const audioProperties: Record<string, number>;
 
 // @public
 export class AutoScroll {
-    constructor(element: HTMLElement);
+    constructor(element: HTMLElement, win?: Window);
     // (undocumented)
     dispose(): void;
 }
 
 // @public @deprecated
-export class BaseComponent<TProps extends IBaseProps = {}, TState = {}> extends React_2.Component<TProps, TState> {
+export class BaseComponent<TProps extends IBaseProps = {}, TState extends {} = {}> extends React_2.Component<TProps, TState> {
     constructor(props: TProps, context?: any);
     protected get _async(): Async;
     get className(): string;
@@ -126,7 +136,10 @@ export const buttonProperties: Record<string, number>;
 export function calculatePrecision(value: number | string): number;
 
 // @public
-export function classNamesFunction<TStyleProps extends {}, TStyleSet extends IStyleSet<TStyleSet>>(options?: IClassNamesFunctionOptions): (getStyles: IStyleFunctionOrObject<TStyleProps, TStyleSet> | undefined, styleProps?: TStyleProps) => IProcessedStyleSet<TStyleSet>;
+export function canUseDOM(): boolean;
+
+// @public
+export function classNamesFunction<TStyleProps extends {}, TStyleSet extends IStyleSetBase>(options?: IClassNamesFunctionOptions): (getStyles: IStyleFunctionOrObject<TStyleProps, TStyleSet> | undefined, styleProps?: TStyleProps) => IProcessedStyleSet<TStyleSet>;
 
 // @public (undocumented)
 export const colGroupProperties: Record<string, number>;
@@ -135,7 +148,7 @@ export const colGroupProperties: Record<string, number>;
 export const colProperties: Record<string, number>;
 
 // @public
-export function composeComponentAs<TProps>(outer: IComponentAs<TProps>, inner: IComponentAs<TProps>): IComponentAs<TProps>;
+export function composeComponentAs<TProps extends {}>(outer: IComponentAs<TProps>, inner: IComponentAs<TProps>): IComponentAs<TProps>;
 
 // @public
 export function composeRenderFunction<TProps>(outer: IRenderFunction<TProps>, inner: IRenderFunction<TProps>): IRenderFunction<TProps>;
@@ -147,7 +160,7 @@ export function createArray<T>(size: number, getItem: (index: number) => T): T[]
 export function createMemoizer<F extends (input: any) => any>(getValue: F): F;
 
 // @public
-export const createMergedRef: <TType, TValue = null>(value?: TValue | undefined) => (...newRefs: (((instance: TType | TValue | null) => void) | React_2.RefObject<TType | TValue | null> | null | undefined)[]) => (newValue: TType | TValue | null) => void;
+export const createMergedRef: <TType, TValue = null>(value?: TValue | undefined) => (...newRefs: (React_2.Ref<TType | TValue | null> | undefined)[]) => (newValue: TType | TValue | null) => void;
 
 // Warning: (ae-incompatible-release-tags) The symbol "css" is marked as @public, but its signature references "ICssInput" which is marked as @internal
 //
@@ -238,7 +251,7 @@ export class EventGroup {
     onAll(target: any, events: {
         [key: string]: (args?: any) => void;
     }, useCapture?: boolean): void;
-    static raise(target: any, eventName: string, eventArgs?: any, bubbleEvent?: boolean): boolean | undefined;
+    static raise(target: any, eventName: string, eventArgs?: any, bubbleEvent?: boolean, doc?: Document): boolean | undefined;
     raise(eventName: string, eventArgs?: any, bubbleEvent?: boolean): boolean | undefined;
     // (undocumented)
     static stopPropagation(event: any): void;
@@ -291,18 +304,32 @@ export function focusAsync(element: HTMLElement | {
 } | undefined | null): void;
 
 // @public
-export function focusFirstChild(rootElement: HTMLElement): boolean;
+export function focusFirstChild(rootElement: HTMLElement, bypassHiddenElements?: boolean, includeShadowRoots?: boolean): boolean;
 
 // @public
 export const FocusRects: React_2.FunctionComponent<{
     rootRef?: React_2.RefObject<HTMLElement>;
 }>;
 
+// @public (undocumented)
+export const FocusRectsContext: React_2.Context<IFocusRectsContext | undefined>;
+
+// @public (undocumented)
+export const FocusRectsProvider: React_2.FC<FocusRectsProviderProps>;
+
+// @public (undocumented)
+export type FocusRectsProviderProps = {
+    providerRef: React_2.RefObject<HTMLElement>;
+    layerRoot?: boolean;
+};
+
 // @public
 export function format(s: string, ...values: any[]): string;
 
 // @public
 export const formProperties: Record<string, number>;
+
+export { getActiveElement }
 
 export { getChildren }
 
@@ -315,11 +342,13 @@ export function getDocument(rootElement?: HTMLElement | null): Document | undefi
 // @public
 export function getElementIndexPath(fromElement: HTMLElement, toElement: HTMLElement): number[];
 
-// @public
-export function getFirstFocusable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean): HTMLElement | null;
+export { getEventTarget }
 
 // @public
-export function getFirstTabbable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean, checkNode?: boolean): HTMLElement | null;
+export function getFirstFocusable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean, includeShadowRoots?: boolean): HTMLElement | null;
+
+// @public
+export function getFirstTabbable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean, checkNode?: boolean, includeShadowRoots?: boolean): HTMLElement | null;
 
 // @public
 export function getFirstVisibleElementFromSelector(selector: string): Element | undefined;
@@ -337,10 +366,10 @@ export function getInitials(displayName: string | undefined | null, isRtl: boole
 export function getLanguage(persistenceType?: 'localStorage' | 'sessionStorage' | 'none'): string | null;
 
 // @public
-export function getLastFocusable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean): HTMLElement | null;
+export function getLastFocusable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean, includeShadowRoots?: boolean): HTMLElement | null;
 
 // @public
-export function getLastTabbable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean, checkNode?: boolean): HTMLElement | null;
+export function getLastTabbable(rootElement: HTMLElement, currentElement: HTMLElement, includeElementsInFocusZones?: boolean, checkNode?: boolean, includeShadowRoots?: boolean): HTMLElement | null;
 
 // @public
 export function getNativeElementProps<TAttributes extends React_2.HTMLAttributes<any>>(tagName: string, props: {}, excludedPropNames?: string[]): TAttributes;
@@ -349,18 +378,18 @@ export function getNativeElementProps<TAttributes extends React_2.HTMLAttributes
 export function getNativeProps<T extends Record<string, any>>(props: Record<string, any>, allowedPropNames: string[] | Record<string, number>, excludedPropNames?: string[]): T;
 
 // @public
-export function getNextElement(rootElement: HTMLElement, currentElement: HTMLElement | null, checkNode?: boolean, suppressParentTraversal?: boolean, suppressChildTraversal?: boolean, includeElementsInFocusZones?: boolean, allowFocusRoot?: boolean, tabbable?: boolean): HTMLElement | null;
+export function getNextElement(rootElement: HTMLElement, currentElement: HTMLElement | null, checkNode?: boolean, suppressParentTraversal?: boolean, suppressChildTraversal?: boolean, includeElementsInFocusZones?: boolean, allowFocusRoot?: boolean, tabbable?: boolean, bypassHiddenElements?: boolean, includeShadowRoots?: boolean): HTMLElement | null;
 
 export { getParent }
 
 // @public
-export function getPreviousElement(rootElement: HTMLElement, currentElement: HTMLElement | null, checkNode?: boolean, suppressParentTraversal?: boolean, traverseChildren?: boolean, includeElementsInFocusZones?: boolean, allowFocusRoot?: boolean, tabbable?: boolean): HTMLElement | null;
+export function getPreviousElement(rootElement: HTMLElement, currentElement: HTMLElement | null, checkNode?: boolean, suppressParentTraversal?: boolean, traverseChildren?: boolean, includeElementsInFocusZones?: boolean, allowFocusRoot?: boolean, tabbable?: boolean, includeShadowRoots?: boolean): HTMLElement | null;
 
 // @public
 export function getPropsWithDefaults<TProps extends {}>(defaultProps: Partial<TProps>, propsWithoutDefaults: TProps): TProps;
 
 // @public
-export function getRect(element: HTMLElement | Window | null): IRectangle | undefined;
+export function getRect(element: HTMLElement | Window | null, win?: Window): IRectangle | undefined;
 
 // @public @deprecated (undocumented)
 export function getResourceUrl(url: string): string;
@@ -376,7 +405,7 @@ export function getRTLSafeKeyCode(key: number, theme?: {
 }): number;
 
 // @public
-export function getScrollbarWidth(): number;
+export function getScrollbarWidth(doc?: Document): number;
 
 export { getVirtualParent }
 
@@ -397,6 +426,9 @@ export class GlobalSettings {
 
 // @public
 export function hasHorizontalOverflow(element: HTMLElement): boolean;
+
+// @public (undocumented)
+export type HasMergeStylesShadowRootContextHook = () => boolean;
 
 // @public
 export function hasOverflow(element: HTMLElement): boolean;
@@ -505,6 +537,7 @@ export type ICustomizerProps = IBaseProps & Partial<{
     settings: ISettings | ISettingsFunction;
     scopedSettings: ISettings | ISettingsFunction;
 }> & {
+    children?: React_2.ReactNode;
     contextTransform?: (context: Readonly<ICustomizerContext>) => ICustomizerContext;
 };
 
@@ -517,7 +550,7 @@ export interface IDeclaredEventsByName {
 }
 
 // @public
-export interface IDelayedRenderProps extends React_2.Props<{}> {
+export interface IDelayedRenderProps extends IReactProps<{}> {
     delay?: number;
 }
 
@@ -588,6 +621,14 @@ export interface IFitContentToBoundsOptions {
     mode: FitMode;
 }
 
+// @public (undocumented)
+export type IFocusRectsContext = {
+    readonly providerRef: React_2.RefObject<HTMLElement>;
+    readonly registeredProviders: React_2.RefObject<HTMLElement>[];
+    readonly registerProvider: (ref: React_2.RefObject<HTMLElement>) => void;
+    readonly unregisterProvider: (ref: React_2.RefObject<HTMLElement>) => void;
+};
+
 // @public
 export const iframeProperties: Record<string, number>;
 
@@ -647,9 +688,19 @@ export interface IPoint extends Point {
 }
 
 // @public (undocumented)
-export interface IPropsWithStyles<TStyleProps, TStyleSet extends IStyleSet<TStyleSet>> {
+export interface IPropsWithStyles<TStyleProps, TStyleSet extends IStyleSetBase> {
     // (undocumented)
     styles?: IStyleFunctionOrObject<TStyleProps, TStyleSet>;
+}
+
+// @public (undocumented)
+export interface IReactProps<T> {
+    // (undocumented)
+    children?: React_2.ReactNode | undefined;
+    // (undocumented)
+    key?: React_2.Key | undefined;
+    // (undocumented)
+    ref?: React_2.LegacyRef<T> | undefined;
 }
 
 // @public
@@ -695,6 +746,8 @@ export interface ISelection<TItem = IObjectWithKey> {
     // (undocumented)
     count: number;
     // (undocumented)
+    getItemIndex?(key: string): number;
+    // (undocumented)
     getItems(): TItem[];
     // (undocumented)
     getSelectedCount(): number;
@@ -719,6 +772,8 @@ export interface ISelection<TItem = IObjectWithKey> {
     // (undocumented)
     selectToKey(key: string, clearSelection?: boolean): void;
     // (undocumented)
+    selectToRange?(index: number, count: number, clearSelection?: boolean): void;
+    // (undocumented)
     setAllSelected(isAllSelected: boolean): void;
     // (undocumented)
     setChangeEvents(isEnabled: boolean, suppressChange?: boolean): void;
@@ -730,6 +785,8 @@ export interface ISelection<TItem = IObjectWithKey> {
     setKeySelected(key: string, isSelected: boolean, shouldAnchor: boolean): void;
     // (undocumented)
     setModal?(isModal: boolean): void;
+    // (undocumented)
+    setRangeSelected?(fromIndex: number, count: number, isSelected: boolean, shouldAnchor: boolean): void;
     // (undocumented)
     toggleAllSelected(): void;
     // (undocumented)
@@ -748,6 +805,8 @@ export interface ISelectionOptions<TItem = IObjectWithKey> {
     // (undocumented)
     items?: TItem[];
     // (undocumented)
+    onItemsChanged?: () => void;
+    // (undocumented)
     onSelectionChanged?: () => void;
     // (undocumented)
     selectionMode?: SelectionMode_2;
@@ -763,13 +822,13 @@ export function isElementFocusSubZone(element?: HTMLElement): boolean;
 export function isElementFocusZone(element?: HTMLElement): boolean;
 
 // @public
-export function isElementTabbable(element: HTMLElement, checkTabIndex?: boolean): boolean;
+export function isElementTabbable(element: HTMLElement, checkTabIndex?: boolean, checkShadowRoot?: boolean): boolean;
 
 // @public
 export function isElementVisible(element: HTMLElement | undefined | null): boolean;
 
 // @public
-export function isElementVisibleAndNotHidden(element: HTMLElement | undefined | null): boolean;
+export function isElementVisibleAndNotHidden(element: HTMLElement | undefined | null, win?: Window): boolean;
 
 // Warning: (ae-internal-missing-underscore) The name "ISerializableObject" should be prefixed with an underscore because the declaration is marked as @internal
 //
@@ -972,6 +1031,65 @@ export function mergeScopedSettings(oldSettings?: ISettings, newSettings?: ISett
 // @public
 export function mergeSettings(oldSettings?: ISettings, newSettings?: ISettings | ISettingsFunction): ISettings;
 
+// @public (undocumented)
+export type MergeStylesContextConsumerProps = {
+    stylesheetKey: string;
+    children: (inShadow: boolean) => React_2.ReactElement<any, any>;
+};
+
+// @public (undocumented)
+export type MergeStylesRootContextValue = {
+    stylesheets: Map<string, ExtendedCSSStyleSheet>;
+    useAdoptedStylesheetEx: AdoptedStylesheetExHook;
+    useAdoptedStylesheet: AdoptedStylesheetHook;
+    useShadowConfig: ShadowConfigHook;
+    useMergeStylesShadowRootContext: MergeStylesShadowRootContextHook;
+    useHasMergeStylesShadowRootContext: HasMergeStylesShadowRootContextHook;
+    useMergeStylesRootStylesheets: MergeStylesRootStylesheetsHook;
+    useWindow: UseWindowHook;
+    useStyled: UseStyledHook;
+};
+
+// @public
+export const MergeStylesRootProvider: React_2.FC<MergeStylesRootProviderProps>;
+
+// @public (undocumented)
+export type MergeStylesRootProviderProps = {
+    stylesheets?: Map<string, ExtendedCSSStyleSheet>;
+    window?: Window;
+    useAdoptedStylesheetEx?: AdoptedStylesheetExHook;
+    useAdoptedStylesheet?: AdoptedStylesheetHook;
+    useShadowConfig?: ShadowConfigHook;
+    useMergeStylesShadowRootContext?: MergeStylesShadowRootContextHook;
+    useHasMergeStylesShadowRootContext?: HasMergeStylesShadowRootContextHook;
+    useMergeStylesRootStylesheets?: MergeStylesRootStylesheetsHook;
+    useWindow?: UseWindowHook;
+    useStyled?: UseStyledHook;
+};
+
+// @public (undocumented)
+export type MergeStylesRootStylesheetsHook = () => Map<string, ExtendedCSSStyleSheet>;
+
+// @public (undocumented)
+export const MergeStylesShadowRootContext: React_2.Context<MergeStylesShadowRootContextValue | undefined>;
+
+// @public (undocumented)
+export type MergeStylesShadowRootContextHook = () => MergeStylesShadowRootContextValue | undefined;
+
+// @public (undocumented)
+export type MergeStylesShadowRootContextValue = {
+    stylesheets: Map<string, CSSStyleSheet>;
+    shadowRoot?: ShadowRoot | null;
+};
+
+// @public
+export const MergeStylesShadowRootProvider: React_2.FC<MergeStylesShadowRootProviderProps>;
+
+// @public (undocumented)
+export type MergeStylesShadowRootProviderProps = {
+    shadowRoot?: ShadowRoot | null;
+};
+
 // @public
 export function modalize(target: HTMLElement): () => void;
 
@@ -1009,8 +1127,8 @@ export { portalContainsElement }
 // @public
 export function precisionRound(value: number, precision: number, base?: number): number;
 
-// @public
-export function raiseClick(target: Element): void;
+// @public @deprecated
+export function raiseClick(target: Element, doc?: Document): void;
 
 // @public
 export class Rectangle {
@@ -1033,6 +1151,9 @@ export type RefObject<T> = {
     (component: T | null): void;
     current: T | null;
 };
+
+// @public
+export function removeDirectionalKeyCode(which: number): void;
 
 // @public
 export function removeIndex<T>(array: T[], index: number): T[];
@@ -1062,6 +1183,8 @@ class Selection_2<TItem = IObjectWithKey> implements ISelection<TItem> {
     canSelectItem(item: TItem, index?: number): boolean;
     count: number;
     // (undocumented)
+    getItemIndex(key: string): number;
+    // (undocumented)
     getItems(): TItem[];
     // (undocumented)
     getKey(item: TItem, index?: number): string;
@@ -1088,6 +1211,8 @@ class Selection_2<TItem = IObjectWithKey> implements ISelection<TItem> {
     // (undocumented)
     selectToKey(key: string, clearSelection?: boolean): void;
     // (undocumented)
+    selectToRange(fromIndex: number, count: number, clearSelection?: boolean): void;
+    // (undocumented)
     setAllSelected(isAllSelected: boolean): void;
     // (undocumented)
     setChangeEvents(isEnabled: boolean, suppressChange?: boolean): void;
@@ -1098,6 +1223,8 @@ class Selection_2<TItem = IObjectWithKey> implements ISelection<TItem> {
     setKeySelected(key: string, isSelected: boolean, shouldAnchor: boolean): void;
     // (undocumented)
     setModal(isModal: boolean): void;
+    // (undocumented)
+    setRangeSelected(fromIndex: number, count: number, isSelected: boolean, shouldAnchor: boolean): void;
     // (undocumented)
     toggleAllSelected(): void;
     // (undocumented)
@@ -1111,6 +1238,9 @@ export { Selection_2 as Selection }
 
 // @public (undocumented)
 export const SELECTION_CHANGE = "change";
+
+// @public (undocumented)
+export const SELECTION_ITEMS_CHANGE = "items-change";
 
 // @public (undocumented)
 export enum SelectionDirection {
@@ -1138,7 +1268,7 @@ export const selectProperties: Record<string, number>;
 export function setBaseUrl(baseUrl: string): void;
 
 // @public
-export function setFocusVisibility(enabled: boolean, target?: Element): void;
+export function setFocusVisibility(enabled: boolean, target?: Element, registeredProviders?: React_2.RefObject<HTMLElement>[]): void;
 
 // @public
 export function setLanguage(language: string, persistenceType?: 'localStorage' | 'sessionStorage' | 'none'): void;
@@ -1156,7 +1286,7 @@ export { setPortalAttribute }
 // @public
 export function setRTL(isRTL: boolean, persistSetting?: boolean): void;
 
-// @public
+// @public @deprecated
 export function setSSR(isEnabled: boolean): void;
 
 // @public @deprecated (undocumented)
@@ -1170,22 +1300,26 @@ export { setVirtualParent }
 // @public
 export function setWarningCallback(warningCallback?: (message: string) => void): void;
 
+// @public (undocumented)
+export type ShadowConfigHook = (stylesheetKey: string, inShadow: boolean, win?: Window) => ShadowConfig;
+
 // @public
 export function shallowCompare<TA extends any, TB extends any>(a: TA, b: TB): boolean;
 
 // @public
-export function shouldWrapFocus(element: HTMLElement, noWrapDataAttribute: 'data-no-vertical-wrap' | 'data-no-horizontal-wrap'): boolean;
+export function shouldWrapFocus(element: HTMLElement, noWrapDataAttribute: 'data-no-vertical-wrap' | 'data-no-horizontal-wrap', doc?: Document): boolean;
 
 // @public
-export function styled<TComponentProps extends IPropsWithStyles<TStyleProps, TStyleSet>, TStyleProps, TStyleSet extends IStyleSet<TStyleSet>>(Component: React_2.ComponentClass<TComponentProps> | React_2.FunctionComponent<TComponentProps>, baseStyles: IStyleFunctionOrObject<TStyleProps, TStyleSet>, getProps?: (props: TComponentProps) => Partial<TComponentProps>, customizable?: ICustomizableProps, pure?: boolean): React_2.FunctionComponent<TComponentProps>;
+export function styled<TComponentProps extends IPropsWithStyles<TStyleProps, TStyleSet>, TStyleProps, TStyleSet extends IStyleSetBase>(Component: React_2.ComponentClass<TComponentProps> | React_2.FunctionComponent<TComponentProps>, baseStyles: IStyleFunctionOrObject<TStyleProps, TStyleSet>, getProps?: (props: TComponentProps) => Partial<TComponentProps>, customizable?: ICustomizableProps, pure?: boolean): React_2.FunctionComponent<TComponentProps>;
 
 // @public (undocumented)
-export function styled<TComponentProps extends IPropsWithStyles<TStyleProps, TStyleSet> & React_2.RefAttributes<TRef>, TStyleProps, TStyleSet extends IStyleSet<TStyleSet>, TRef = unknown>(Component: React_2.ComponentClass<TComponentProps> | React_2.FunctionComponent<TComponentProps>, baseStyles: IStyleFunctionOrObject<TStyleProps, TStyleSet>, getProps?: (props: TComponentProps) => Partial<TComponentProps>, customizable?: ICustomizableProps, pure?: boolean): React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<TComponentProps> & React_2.RefAttributes<TRef>>;
+export function styled<TComponentProps extends IPropsWithStyles<TStyleProps, TStyleSet> & React_2.RefAttributes<TRef>, TStyleProps, TStyleSet extends IStyleSetBase, TRef = unknown>(Component: React_2.ComponentClass<TComponentProps> | React_2.FunctionComponent<TComponentProps>, baseStyles: IStyleFunctionOrObject<TStyleProps, TStyleSet>, getProps?: (props: TComponentProps) => Partial<TComponentProps>, customizable?: ICustomizableProps, pure?: boolean): React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<TComponentProps> & React_2.RefAttributes<TRef>>;
 
 // @public (undocumented)
-export type StyleFunction<TStyleProps, TStyleSet> = IStyleFunctionOrObject<TStyleProps, TStyleSet> & {
+export type StyleFunction<TStyleProps, TStyleSet extends IStyleSetBase> = IStyleFunctionOrObject<TStyleProps, TStyleSet> & {
     __cachedInputs__: (IStyleFunctionOrObject<TStyleProps, TStyleSet> | undefined)[];
     __noStyleOverride__: boolean;
+    __shadowConfig__?: ShadowConfig;
 };
 
 // @public
@@ -1210,10 +1344,52 @@ export const trProperties: Record<string, number>;
 export function unhoistMethods(source: any, methodNames: string[]): void;
 
 // @public
+export const useAdoptedStylesheet: AdoptedStylesheetHook;
+
+// @public
+export const useAdoptedStylesheetEx: AdoptedStylesheetExHook;
+
+// @public
 export function useCustomizationSettings(properties: string[], scopeName?: string): ISettings;
 
 // @public
 export function useFocusRects(rootRef?: React_2.RefObject<HTMLElement>): void;
+
+// @public
+export const useHasMergeStylesShadowRootContext: HasMergeStylesShadowRootContextHook;
+
+// @public
+export const useIsomorphicLayoutEffect: typeof React_2.useEffect;
+
+// @public (undocumented)
+export const useMergeStylesHooks: () => {
+    useAdoptedStylesheet: AdoptedStylesheetHook;
+    useAdoptedStylesheetEx: AdoptedStylesheetExHook;
+    useShadowConfig: ShadowConfigHook;
+    useMergeStylesShadowRootContext: MergeStylesShadowRootContextHook;
+    useHasMergeStylesShadowRootContext: HasMergeStylesShadowRootContextHook;
+    useMergeStylesRootStylesheets: MergeStylesRootStylesheetsHook;
+    useWindow: UseWindowHook;
+    useStyled: UseStyledHook;
+};
+
+// @public
+export const useMergeStylesRootStylesheets: MergeStylesRootStylesheetsHook;
+
+// @public
+export const useMergeStylesShadowRootContext: MergeStylesShadowRootContextHook;
+
+// @public
+export const useShadowConfig: ShadowConfigHook;
+
+// @public (undocumented)
+export const useStyled: UseStyledHook;
+
+// @public (undocumented)
+export type UseStyledHook = (scope: string) => ShadowConfig | undefined;
+
+// @public (undocumented)
+export type UseWindowHook = () => Window | undefined;
 
 // @public
 export function values<T>(obj: any): T[];
@@ -1225,13 +1401,13 @@ export const videoProperties: Record<string, number>;
 export function warn(message: string): void;
 
 // @public
-export function warnConditionallyRequiredProps<P>(componentName: string, props: P, requiredProps: string[], conditionalPropName: string, condition: boolean): void;
+export function warnConditionallyRequiredProps<P extends {}>(componentName: string, props: P, requiredProps: string[], conditionalPropName: string, condition: boolean): void;
 
 // @public
 export function warnControlledUsage<P>(params: IWarnControlledUsageParams<P>): void;
 
 // @public
-export function warnDeprecations<P>(componentName: string, props: P, deprecationMap: ISettingsMap<P>): void;
+export function warnDeprecations<P extends {}>(componentName: string, props: P, deprecationMap: ISettingsMap<P>): void;
 
 // @public
 export function warnMutuallyExclusive<P>(componentName: string, props: P, exclusiveMap: ISettingsMap<P>): void;

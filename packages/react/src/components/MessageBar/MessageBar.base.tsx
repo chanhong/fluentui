@@ -50,6 +50,7 @@ export const MessageBarBase: React.FunctionComponent<IMessageBarProps> = React.f
     actions,
     className,
     children,
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     overflowButtonAriaLabel,
     dismissIconProps,
     styles,
@@ -62,7 +63,20 @@ export const MessageBarBase: React.FunctionComponent<IMessageBarProps> = React.f
     messageBarIconProps,
     role,
     delayedRender = true,
+    expandButtonProps,
+    onExpandButtonToggled = undefined,
+    showExpandButton,
   } = props;
+
+  // Wrap 'toggleExpandSingleLine' to execute the 'onExpandButtonToggled' callback whenever the expand button toggles
+  const handleToggleExpandSingleLine = React.useCallback(() => {
+    toggleExpandSingleLine();
+    if (onExpandButtonToggled) {
+      // We use the opposite of 'expandSingleLine' here because at this point the useBoolean's
+      // useState hasn't been updated yet.
+      onExpandButtonToggled(!expandSingleLine);
+    }
+  }, [expandSingleLine, onExpandButtonToggled, toggleExpandSingleLine]);
 
   const nativeProps = getNativeProps<React.HTMLAttributes<HTMLSpanElement>>(props, htmlElementProperties, [
     'className',
@@ -74,9 +88,9 @@ export const MessageBarBase: React.FunctionComponent<IMessageBarProps> = React.f
     messageBarType: messageBarType || MessageBarType.info,
     onDismiss: onDismiss !== undefined,
     actions: actions !== undefined,
-    truncated: truncated,
-    isMultiline: isMultiline,
-    expandSingleLine: expandSingleLine,
+    truncated,
+    isMultiline,
+    expandSingleLine,
     className,
   });
 
@@ -124,15 +138,16 @@ export const MessageBarBase: React.FunctionComponent<IMessageBarProps> = React.f
           </span>
         </div>
         {
-          /* singleline expand/collapse button */ !isMultiline && !actionsDiv && truncated && (
+          /* singleline expand/collapse button */ (showExpandButton || (!isMultiline && !actionsDiv && truncated)) && (
             <div className={classNames.expandSingleLine}>
               <IconButton
                 disabled={false}
                 className={classNames.expand}
-                onClick={toggleExpandSingleLine}
+                onClick={handleToggleExpandSingleLine}
                 iconProps={expandIconProps}
                 ariaLabel={overflowButtonAriaLabel}
                 aria-expanded={expandSingleLine}
+                {...expandButtonProps}
               />
             </div>
           )
